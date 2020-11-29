@@ -18,19 +18,150 @@
             @@include('./_preloader.html', {
             "path": "."
             })
-
-            <section class="test">
+            <!-- start products-all -->
+            <section class="products-all">
                 <div class="container">
-                    
+                    <div class="products-all__inner">
+                        <!-- start products-all__filter -->
+                        <div class="products-all__filter">
+                            <div class="products-all__filter__categories">
+                                <h2>Categories</h2>
+                                <ul>
+                                    <li><a href="#">Biographies</a></li>
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Financial education</a></li>
+                                    <li><a href="#">Literature</a></li>
+                                    <li><a href="#">Psychology</a></li>
+                                    <li><a href="#">Programing</a></li>
+                                    <li><a href="#">Time management</a></li>
+                                    <li><a href="#">Self development</a></li>
+                                </ul>
+                            </div>
+                            <div class="products-all__filter__authors">
+                                <h2>Authors</h2>
+                                <ul>
+                                    <li><a href="#">Brian Tracy</a></li>
+                                    <li><a href="#">Dale Carnegie</a></li>
+                                    <li><a href="#">Robert Kiyosaki</a></li>
+                                    <li><a href="#">Robin Sharma</a></li>
+                                    <li><a href="#">Bodo Shefer</a></li>
+                                    <li><a href="#">Tony Robbins</a></li>
+                                    <li><a href="#">Napoleon Hill</a></li>
+                                    <li><a href="#">Hal Elrod</a></li>
+                                    <li><a href="#">John Kehoe</a></li>
+                                    <li><a href="#">Stiven Kovi</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- end products-all__filter -->
+                        <!-- start products-all__results__wrapper -->
+                        <div class="products-all__results__wrapper">
+                            <!-- start products-all__results__header -->
+                            <div class="products-all__results__header">
+                                <div class="products-all__results__sorting">
+                                    <form method="get" action="">
+                                        <select>
+                                            <option value="menu_order" selected="selected">Default sorting</option>
+                                            <option value="popularity">Sort by popularity</option>
+                                            <option value="date">Sort by latest</option>
+                                            <option value="price">Sort by name (A-Z)</option>
+                                            <option value="price-desc">Sort by name (Z-A)</option>
+                                        </select>
+                                    </form>
+                                    <form method="get" action="">
+                                        <select>
+                                            <option value="20" selected="selected">Show 20</option>
+                                            <option value="-1">Show All</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="products-all__results__view">
+                                    <div class="products-all__results__view_item">
+                                        <svg>
+                                            <use xlink:href="assets/icons/sprite.svg#view-grid"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="products-all__results__view_item">
+                                        <svg>
+                                            <use xlink:href="assets/icons/sprite.svg#view-list"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end products-all__results__header -->
+                            <!-- start products-all__results -->
+                            <div class="products-all__results">
+                                <div class="products-all__results__book">
+                                    <div class="products-all__results__book_img">
+                                        <img src="../assets/img/books/61Iz2yy2CKL.jpg" alt="">
+                                    </div>
+                                    <div class="products-all__results__book_title">
+                                        The monk who sold his ferrari
+                                    </div>
+                                    <div class="products-all__results__book_author">
+                                        Robin Sharma
+                                    </div>
+                                    <button class="btn">Add to wishlist</button>
+                                </div>
+                                <div class="products-all__results__book">
+                                    <div class="products-all__results__book_img">
+                                        <img src="../assets/img/books/51elspxxvZL.jpg" alt="">
+                                    </div>
+                                    <div class="products-all__results__book_title">
+                                        How to stop worrying and start living
+                                    </div>
+                                    <div class="products-all__results__book_author">
+                                        Dale Carnegie
+                                    </div>
+                                    <button class="btn">Add to wishlist</button>
+                                </div>
+                                <div class="products-all__results__book">
+                                    <div class="products-all__results__book_img">
+                                        <img src="../assets/img/books/D_NQ_NP_746944-MLM29430267048_022019-W.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="products-all__results__book_title">
+                                        Change your thinking change your life
+                                    </div>
+                                    <div class="products-all__results__book_author">
+                                        Brian Tracy
+                                    </div>
+                                    <button class="btn">Add to wishlist</button>
+                                </div>
+                                <div class="products-all__results__book">
+                                    <div class="products-all__results__book_img">
+                                        <img src="../assets/img/books/51elspxxvZL.jpg" alt="">
+                                    </div>
+                                    <div class="products-all__results__book_title">
+                                        How to stop worrying and start living
+                                    </div>
+                                    <div class="products-all__results__book_author">
+                                        Dale Carnegie
+                                    </div>
+                                    <button class="btn">Add to wishlist</button>
+                                </div>
+                                <div class="products-all__results__book">
+                                    <div class="products-all__results__book_img">
+                                        <img src="../assets/img/books/61Iz2yy2CKL.jpg" alt="">
+                                    </div>
+                                    <div class="products-all__results__book_title">
+                                        The monk who sold his ferrari
+                                    </div>
+                                    <div class="products-all__results__book_author">
+                                        Robin Sharma
+                                    </div>
+                                    <button class="btn">Add to wishlist</button>
+                                </div>
+                            </div><!-- end products-all__results -->
+                        </div><!-- end products-all__results__wrapper -->
+                    </div>
                 </div>
-            </section>
-
-
-
+            </section><!-- end products-all -->
         </main>
 
         <a href="#up" class="pageUp animate__animated fadeOut">
-            <i class="fas fa-chevron-up"></i>
+            <svg>
+                <use xlink:href="assets/icons/sprite.svg#arrow-up"></use>
+            </svg>
         </a>
 
         @@include('./_footer.html', {

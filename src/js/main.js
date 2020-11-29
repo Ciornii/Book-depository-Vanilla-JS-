@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     moduleTest('test-title');
    
-    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
     const preloader = document.querySelector('.preloader');
@@ -21,17 +20,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     // --------------------------------------------------------------------------------------------------------
-    // -------------------------------------------------------------------  Slide Down a NavBar on Scroll
+    // -------------------------------------------------------------------  NavBar on Scroll
     window.onscroll = function () {
         scrollFunction();
     };
 
     function scrollFunction() {
-        const navbar = document.querySelector(".navbar--scroll");
-        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 500) {
-            navbar.style.top = "0";
+        const navbar = document.querySelector(".navbar");
+        if (document.body.scrollTop > 50|| document.documentElement.scrollTop > 50) {
+            navbar.classList.add('on-scroll');
         } else {
-            navbar.style.top = "-80px";
+            navbar.classList.remove('on-scroll');
         }
     }
 
@@ -52,12 +51,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Smooth scroll
 
-    let scroll = new SmoothScroll('a[href*="#"]', {
-        speed: 500,
-        speedAsDuration: true
-    });
-
-
     const upElem = document.querySelector('.pageUp');
 
     window.addEventListener('scroll', () => {
@@ -70,12 +63,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
-    // --------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------- Slider (page2)
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        items: 1
-    });
 });

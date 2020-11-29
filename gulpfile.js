@@ -5,15 +5,11 @@ const autoprefixer = require('gulp-autoprefixer'),
       htmlmin = require('gulp-htmlmin'),
       cssbeautify = require('gulp-cssbeautify'),
       gulp = require('gulp'),
-      npmDist = require('gulp-npm-dist'),
       sass = require('gulp-sass'),
       wait = require('gulp-wait'),
-      sourcemaps = require('gulp-sourcemaps'),
       fileinclude = require('gulp-file-include'),
-      concat = require('gulp-concat'),
-      uglify = require('gulp-uglify'),
       plumber = require('gulp-plumber'),
-      webpack = require('webpack-stream'),
+      webpackStream = require('webpack-stream');
       CircularDependencyPlugin = require('circular-dependency-plugin'),
       DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin"),
       eslint = require('gulp-eslint'),
@@ -42,6 +38,7 @@ const paths = {
         html: './src/html/pages/**/*.html',
         assets: './src/assets/**/*.*',
         fonts: './src/assets/fonts',
+        icons: './src/assets/icons',
         img: './src/assets/img',
         partials: './src/html/partials/**/*.html',
         scss: './src/styles'
@@ -145,7 +142,7 @@ gulp.task('minify:html:index', function () {
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------   Styles
 gulp.task('compile:scss', function () {
-    return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
+    return gulp.src([paths.src.scss + '/style.scss'])
         .pipe(wait(500))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -175,23 +172,6 @@ gulp.task('minify:css', function () {
 
 
 // ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   JS libs
-// Concat and minify JS libs and plugins
-gulp.task('js:libs', function () {
-    return gulp
-        .src([
-            'node_modules/jquery/dist/jquery.min.js',
-            'node_modules/owl.carousel/dist/owl.carousel.min.js',
-            'node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js'
-        ])
-        .pipe(concat('libs.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest([paths.dist.js]))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
-
 // --------------------------------------------------   JS development
 // Bundle and minify js
 gulp.task('js:main', function () {
@@ -200,12 +180,16 @@ gulp.task('js:main', function () {
             paths.src.js + '/main.js'
         ])
         .pipe(plumber())
-        .pipe(webpack({
+        .pipe(webpackStream({
             mode: 'development',
             output: {
                 filename: '[name].js',
             },
-            devtool: "source-map"
+            devtool: "source-map",
+            plugins: [
+                new CircularDependencyPlugin(),
+                new DuplicatePackageCheckerPlugin()
+            ]
         }))
         .pipe(gulp.dest(paths.dist.js))
         .on("end", browserSync.reload);
@@ -219,7 +203,7 @@ gulp.task('js:main:build', function () {
             paths.src.js + '/main.js'
         ])
         .pipe(plumber())
-        .pipe(webpack({
+        .pipe(webpackStream({
             mode: 'production',
             output: {
                 filename: '[name].js',
@@ -258,6 +242,12 @@ gulp.task('copy:fonts', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('copy:icons', function () {
+    return gulp.src([paths.src.icons + '/*', paths.src.icons + '/**/*'])
+        .pipe(gulp.dest(paths.dist.assets + '/icons'))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('copy:img', function () {
     return gulp.src([paths.src.img + '/*', paths.src.img + '/**/*'])
         .pipe(gulp.dest(paths.dist.assets + '/img'))
@@ -285,13 +275,14 @@ gulp.task('compress:img', function () {
 // --------------------------------------------------  Tasks 
 
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'compile:scss', 'js:libs', 'js:main', function () {
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
+    gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
@@ -300,13 +291,14 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'comp
 
 // build
 gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 
- 'copy:img', 'copy:fonts', 'compile:scss', 'minify:css', 'js:libs', 'js:main:build', function () {
+ 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
+    gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss', 'minify:css'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main:build'));
