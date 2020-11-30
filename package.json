@@ -71,6 +71,5 @@
         "stylelint-scss": "^3.13.0",
         "webpack-stream": "^5.2.1"
     },
-    "dependencies": {
-    }
+    "dependencies": {}
 }
