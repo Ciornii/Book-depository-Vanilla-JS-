@@ -1,0 +1,106 @@
+.wishlist-popup {
+  @include width(312px);
+  min-height: 263px;
+  background-color: white;
+  border: 1px solid $border-color;
+  padding: 28px 22px 21px 22px;
+  position: absolute;
+  right: -3px;
+  top: 41px;
+  box-shadow: 2px 3px 12px rgba(184, 184, 184, 0.2);
+  z-index: 100;
+  visibility: hidden;
+
+  .wishlist-popup__title {
+    @include font-size(20px);
+    font-weight: bold;
+    color: $black;
+    text-align: left;
+	 text-transform: uppercase;
+	 margin-bottom: 14px;
+  }
+
+  .wishlist-popup__item {
+    padding: 14px 3px 12px 3px;
+    border-top: 1px solid $border-color;
+
+    &_title {
+		 @include font-size(14px);
+      font-weight: 600;
+      color: $black;
+    }
+
+    &_author {
+      @include font-size(13px);
+      color: $dark-grey;
+    }
+  }
+
+  .wishlist-popup__link {
+    position: relative;
+    @include center_block;
+    width: 136px;
+    @include font-size(14px);
+    text-align: center;
+    color: $red;
+    text-decoration: underline;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    margin-top: 2rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .wishlist-popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    svg {
+      position: absolute;
+      top: 35px;
+      right: 19px;
+      width: 11px;
+      height: 11px;
+      fill: $black;
+      cursor: pointer;
+    }
+  }
+
+  .wishlist-popup__triangle {
+    position: absolute;
+    top: -14px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 14px 22px;
+    border-color: transparent transparent #dee0e0 transparent;
+    line-height: 0px;
+    _border-color: #000000 #000000 #007bff #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 13px 21px;
+      border-color: transparent transparent white transparent;
+      line-height: 0px;
+      _border-color: #000000 #000000 #007bff #000000;
+      _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+      position: absolute;
+      left: -22px;
+      top: 2px;
+    }
+  }
+}
+
+.wishlist-popup.show {
+  visibility: visible;
+  animation: fadeIn 0.2s;
+}

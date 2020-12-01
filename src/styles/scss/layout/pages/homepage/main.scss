@@ -27,17 +27,15 @@
             transition: all .2s ease;
 
             &:hover {
-             font-weight: bold;
-             
+
               &:before {
                 content: '';
                 display: block;
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
+                width: 12px;
+                height: 4px;
                 background-color: $red;
                 @include align-center(vertical);
-                left: -14px;
+                left: -17px;
               }
             }
           }
@@ -166,7 +164,7 @@
               width: 100px;
               padding-right: 23px;
               @include font-size(13px);
-              color: $grey;
+              color: $dark-grey;
               text-decoration: underline;
               overflow: hidden;
               white-space: nowrap;
@@ -198,14 +196,6 @@
               button {
                 width: 105px;
                 margin-top: 1.2rem;
-
-                &:first-child {
-                  background-color: $green;
-
-                  &:hover {
-                    background-color: darken($green, 10%);
-                  }
-                }
               }
             }
           }
