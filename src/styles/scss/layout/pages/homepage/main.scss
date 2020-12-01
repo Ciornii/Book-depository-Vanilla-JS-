@@ -1,9 +1,10 @@
-.products-all {
+.products {
   margin-top: 9rem;
-  .products-all__inner {
+
+  .products__inner {
     display: flex;
 
-    .products-all__filter {
+    .products__filter {
       min-width: 300px;
       border: 1px solid $border-color;
       margin-right: 2rem;
@@ -18,39 +19,53 @@
 
         li {
           a {
-            @include font-size(16px);
+            position: relative;
+            @include font-size(15px);
             display: inline-block;
             padding: 9px 0;
             color: $black;
+            transition: all .2s ease;
 
             &:hover {
-              color: $red;
+             font-weight: bold;
+             
+              &:before {
+                content: '';
+                display: block;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: $red;
+                @include align-center(vertical);
+                left: -14px;
+              }
             }
           }
         }
       }
 
-      .products-all__filter__categories {
+      .products__categories {
         border-bottom: 1px solid $border-color;
       }
     }
 
-    .products-all__results__wrapper {
+    .products__results {
       position: relative;
       width: 100%;
 
-      .products-all__results__header {
+      .products__results_top {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
         margin-bottom: 1rem;
 
-        .products-all__results__sorting {
+        .products__sorting {
           display: flex;
           flex-wrap: nowrap;
 
           form {
             margin-right: 2rem;
+
             select {
               height: 40px;
               border: none;
@@ -59,7 +74,8 @@
             }
           }
         }
-        .products-all__results__view {
+
+        .products__view {
           display: flex;
           flex-wrap: nowrap;
 
@@ -69,9 +85,11 @@
             height: 40px;
             border: 1px solid $border-color;
             cursor: pointer;
+            overflow: hidden;
 
             &:last-of-type {
               border-left: none;
+
               svg {
                 height: 18px;
                 fill: $black;
@@ -87,13 +105,13 @@
         }
       }
 
-      .products-all__results {
+      .products__results_items {
         position: relative;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
 
-        .products-all__results__book {
+        .products__item {
           position: relative;
           text-align: left;
           padding: 1.5rem 2rem;
@@ -104,7 +122,7 @@
           border: 1px solid transparent;
           transition: all 0.3s ease;
 
-          .products-all__results__book_img {
+          .products__item_img {
             height: 345px;
             width: 100%;
             overflow: hidden;
@@ -116,13 +134,13 @@
             }
           }
 
-          .products-all__results__book_bottom {
+          .products__item_bottom {
             position: relative;
             background-color: white;
             transition: all 0.5s ease;
             z-index: 2;
 
-            .products-all__results__book_title {
+            .products__item_title {
               width: 100%;
               height: 5rem;
               padding: 1rem 0 0;
@@ -132,7 +150,7 @@
               cursor: pointer;
             }
 
-            .products-all__results__book_author {
+            .products__item_author {
               @include font-size(15px);
               color: $dark-grey;
               margin-top: -1.2rem;
@@ -142,7 +160,7 @@
               cursor: pointer;
             }
 
-            a.products-all__results__book_view {
+            a.products__item_view {
               position: relative;
               @include center_block;
               width: 100px;
@@ -158,7 +176,7 @@
                 text-decoration: none;
                 color: $black;
 
-                svg { 
+                svg {
                   fill: $black;
                 }
               }
@@ -171,7 +189,8 @@
                 transition: all .2s ease;
               }
             }
-            .products-all__results__book_btns {
+
+            .products__item_btns {
               display: flex;
               flex-wrap: nowrap;
               justify-content: space-between;
@@ -180,11 +199,11 @@
                 width: 105px;
                 margin-top: 1.2rem;
 
-                &:last-child {
-                  background-color: $red;
+                &:first-child {
+                  background-color: $green;
 
                   &:hover {
-                    background-color: darken($red, 10%);
+                    background-color: darken($green, 10%);
                   }
                 }
               }
@@ -192,11 +211,11 @@
           }
         }
 
-        .products-all__results__book:hover {
+        .products__item:hover {
           border: 1px solid $border-color;
           box-shadow: 2px 3px 12px rgba(184, 184, 184, 0.2);
 
-          .products-all__results__book_bottom {
+          .products__item_bottom {
             margin-top: -6.9rem;
           }
         }

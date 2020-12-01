@@ -20,13 +20,16 @@ $main-font: 'Montserrat', sans-serif;
 // $font-family;
 
 // --------------------------------------------- Colors
-$main-color: #ffc400;
-$border-color: #f0f0f0;
-$border-color2: #e4e4e4;
+//$main-color: #ffc400;
+$main-color: rgb(255, 204, 107);
+$main-color-hover: #ebad3b;
+$border-color: #dee0e0;
 $light-grey: #d3d3d3;
 $grey: #acacac;
 $dark-grey: #535353;
 $black: #161619;
-$green: #a5c244;
-$dark-green: #8ca82f;
+//$green: #a5c244;
+$green: rgb(84, 172, 99);
+//$dark-green: #8ca82f;
+$dark-green:  rgb(69, 139, 81);
 $red: #e65a61;

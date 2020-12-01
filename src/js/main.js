@@ -63,4 +63,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
+
+    // --------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------- Pop up
+    const popup = document.getElementById("myPopup"),
+        basket = document.getElementById("basket"),
+        closeBtn = document.getElementById("close-btn");
+
+    // When the user clicks on btn, open the popup
+    basket.addEventListener("click", function () {
+        popup.classList.toggle("show");
+    });
+
+    // When the user clicks on close-btn, close the popup
+    closeBtn.addEventListener("click", function () {
+        popup.classList.toggle("show");
+    });
+
 });
