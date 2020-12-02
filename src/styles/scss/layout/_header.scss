@@ -86,12 +86,6 @@
           position: relative;
           margin-right: 28px;
 
-          &:hover {
-            svg {
-              fill: white;
-            }
-          }
-
           &_icon {
             display: block;
             position: relative;
@@ -112,9 +106,9 @@
 
           &_count {
             border-radius: 50%;
-            background-color: $red;
+            background-color: #e65a61b4;
             position: absolute;
-            right: -11px;
+            right: -9px;
             top: -6px;
             width: 15px;
             height: 15px;
@@ -127,17 +121,30 @@
           }
         }
 
+        &__user,
+        &__books,
+        &__wishlist {
+       
+          &:hover {
+            svg {
+              fill: white;
+            }
+
+            .navbar__icons__wishlist_count {
+              background-color: $red;
+            }
+
+            .navbar__icons__books_count {
+              background-color: $red;
+            }
+          }
+        }
+
         &__user {
           &_icon {
             svg {
               width: 24px;
             }
-          }
-        }
-
-        &__books {
-          &_count { 
-            right: -10px;
           }
         }
 
