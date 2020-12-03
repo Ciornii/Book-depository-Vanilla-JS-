@@ -1,9 +1,11 @@
 import moduleTest from './modules/moduleTest';
+import getItems from './services/getResource';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
     moduleTest('test-title');
+    getItems();
    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
