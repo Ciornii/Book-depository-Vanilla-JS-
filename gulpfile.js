@@ -270,17 +270,25 @@ gulp.task('compress:img', function () {
     .pipe(gulp.dest(paths.dist.assets + '/img'));
 });
 
+gulp.task('copy:db', function () {
+    return gulp.src([paths.src.base + '/db.json'])
+        .pipe(gulp.dest(paths.dist.base))
+        .pipe(browserSync.stream());
+});
+
+
 
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------  Tasks 
 
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
+    gulp.watch([paths.src.base + '/db.json'], gulp.series('copy:db'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
     gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
@@ -290,13 +298,13 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy
 
 
 // build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 
- 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
+gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
+    gulp.watch([paths.src.base + '/db.json'], gulp.series('copy:db'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
     gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));

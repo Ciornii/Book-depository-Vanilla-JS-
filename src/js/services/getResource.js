@@ -1,7 +1,7 @@
 const getItems = () => {
 
    function req() {
-      getResource("http://localhost:3000/people")                
+      getResource("http://localhost:3000/books")                
            .then(data => createCards(data))         
            .catch(err => console.error(err));
 
@@ -26,24 +26,32 @@ const getItems = () => {
 
            console.log(response);
 
-           card.classList.add('card');
-
-           let icon;
-           if (item.sex === "male") {
-               icon = "icons/mars.png";
-           } else {
-               icon = "icons/female.png";
-           }
+           card.classList.add('products__item');
 
            card.innerHTML = `
-                       <img src="${item.photo}" alt="photo">
-                       <div class="name">${item.name} ${item.surname}</div>
-                       <div class="sex">
-                           <img src=${icon} alt="male">
+                    <div class="products__item_img">
+                       <img src="${item.photo}" alt="${item.title}">
+                    </div>
+                    <div class="products__item_bottom">
+                       <div class="products__item_title">
+                            ${item.title}
                        </div>
-                       <div class="age">${item.age}</div>
+                       <div class="products__item_author">
+                             ${item.author}
+                       </div>
+                       <a href="#" class="products__item_view">
+                           Quick View 
+                           <svg>
+                               <use xlink:href="assets/icons/sprite.svg#eye"></use>
+                           </svg>
+                       </a>
+                       <div class="products__item_btns">
+                           <button class="btn btn--green">+ My Books</button>
+                           <button class="btn">+ Wishlist</button>
+                       </div>
+                    </div>
                    `;
-           document.querySelector('.app').appendChild(card);
+           document.querySelector('.products__results_items').appendChild(card);
        });
    }
 
