@@ -1,20 +1,94 @@
 {
    "books": [
      {
+       "category": "personal development",
        "title": "The monk who sold his ferrari",
        "author": "Robin Sharma",
        "photo": "assets/img/books/61Iz2yy2CKL.jpg"
      },
      {
+       "category": "personal development",
        "title": "How to stop worrying and start living",
        "author": "Dale Carnegie",
        "photo": "assets/img/books/51elspxxvZL.jpg"
      },
      {
+       "category": "personal development",
        "title": "Change your thinking change your life",
        "author": "Brian Tracy",
        "photo": "assets/img/books/D_NQ_NP_746944-MLM29430267048_022019-W.jpg"
+     },
+     {
+       "category": "business",
+       "title": "Blue Ocean Strategy",
+       "author": "W. Chan Kim and Renée Mauborgne",
+       "photo": "assets/img/books/51vHDEifkJL.jpg"
+     },
+     {
+       "category": "Financial education",
+       "title": "Rich Dad Poor Dad",
+       "author": "Robert Kiyosaki and Sharon Lechter",
+       "photo": "assets/img/books/81bsw6fnUiL.jpg"
+     },
+     {
+       "category": "Financial education",
+       "title": "The Richest Man in Babylon",
+       "author": "George S. Clason",
+       "photo": "assets/img/books/91cgVuWzjL.jpg"
+     },
+     {
+       "category": "personal development",
+       "title": "The Power of Now: A Guide to Spiritual Enlightenment",
+       "author": "Eckhart Tolle",
+       "photo": "assets/img/books/TPON_Cover_LG.jpg"
+     },
+     {
+       "category": "personal development, financial education",
+       "title": "Think and Grow Rich",
+       "author": "Napoleon Hill",
+       "photo": "assets/img/books/51Uw5tYiqsL.jpg"
+     },
+     {
+       "category": "personal development",
+       "title": "The Miracle Morning",
+       "author": "Hal Elrod",
+       "photo": "assets/img/books/MV5BMzRlZjE2OGMtODQ1NS0.jpg"
+     },
+     {
+       "category": "Financial education",
+       "title": "The Road to Financial Freedom: Earn Your First Million in Seven Years",
+       "author": "Bodo Schaefer",
+       "photo": "assets/img/books/51lQxieli7L.jpg"
+     },
+     {
+       "category": "personal development",
+       "title": "Mind Power into the 21st Century",
+       "author": "John Kehoe",
+       "photo": "assets/img/books/41s2frfaifL.jpg"
+     },
+     {
+       "category": "personal development",
+       "title": "How to Win Friends & Influence People",
+       "author": "Dale Carnegie",
+       "photo": "assets/img/books/how-to-win-friends-and-influence-people-9780671027032_hr.jpg"
+     },
+     {
+       "category": "personal development, Time management",
+       "title": "Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time",
+       "author": "Brian Tracy",
+       "photo": "assets/img/books/81jHcNJLB.jpg"
+     },
+     {
+       "category": "personal development, Time management",
+       "title": "The 7 Habits of Highly Effective People",
+       "author": "Stephen Covey",
+       "photo": "assets/img/books/55842504-stiven-kovi-the-7-habits-of-highly-effective-people.jpg"
+     },
+     {
+       "category": "personal development",
+       "title": "The Power of Habit: Why We Do What We Do in Life and Business",
+       "author": "Charles Duhigg",
+       "photo": "assets/img/books/81oc6I4sn.jpg"
      }
-    
    ]
  }

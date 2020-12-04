@@ -33,11 +33,13 @@ const getItems = () => {
                        <img src="${item.photo}" alt="${item.title}">
                     </div>
                     <div class="products__item_bottom">
-                       <div class="products__item_title">
-                            ${item.title}
-                       </div>
-                       <div class="products__item_author">
-                             ${item.author}
+                       <div class="products__item_info">
+                            <div class="products__item_title">
+                                ${item.title}
+                            </div>
+                            <div class="products__item_author">
+                                ${item.author}
+                            </div>
                        </div>
                        <a href="#" class="products__item_view">
                            Quick View 
