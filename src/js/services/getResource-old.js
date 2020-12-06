@@ -2,13 +2,11 @@ export default class getResource {
     constructor() {
         this.pageCounter = 6;
         this.currentCounter = 0;
-        this.dataLength = 0;
     }
 
     req() {
         this.getResource("http://localhost:3000/books")
             .then(data => this.render(data))
-            .then(this.loadMore())
             .catch(err => console.error(err));
     }
 
@@ -25,6 +23,7 @@ export default class getResource {
     render(response) {
 
         while (this.currentCounter < this.pageCounter) {
+
             let i = this.currentCounter;
             let card = document.createElement('div');
 
@@ -58,34 +57,23 @@ export default class getResource {
             document.querySelector('.products__results_items').appendChild(card);
 
             this.currentCounter++;
-            this.dataLength = response.length;
+
+            if (this.currentCounter === response.length) {
+                document.querySelector("#loadMore").remove();
+                break;
+            }
         }
     }
-
-     loadMore() {
+    
+    loadMore() {
         const loadMore = document.querySelector("#loadMore");
-         loadMore.addEventListener("click", () => {
-
-            let remainItems = this.dataLength - this.pageCounter;
-            if (remainItems < 6) {
-                this.pageCounter = this.pageCounter + remainItems;
-                this.req();
-                loadMore.remove();
-            } else {
-                this.pageCounter = this.pageCounter + 6;
-                this.req();
-            }
+        loadMore.addEventListener("click", () => {
+            this.pageCounter = this.pageCounter + 6;
             loadMore.style.display = 'none';
             setTimeout(() => {
                 loadMore.style.display = 'block';
             }, 10);
-
-            console.log('pageCounter =' + this.pageCounter);
-            console.log('currentCounter =' +this.currentCounter);
-            console.log('dataLength =' +this.dataLength);
-            
+            this.req();
         });
     }
-
-
 }
