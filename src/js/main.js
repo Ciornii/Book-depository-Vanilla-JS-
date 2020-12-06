@@ -1,10 +1,13 @@
 import GetResource from './services/getResource';
+import FilterByCategories from './services/filterByCategories';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
     new GetResource().req();
-    //new GetResource().loadMore();
+    new FilterByCategories().req();
+   
+  
   
    
     // --------------------------------------------------------------------------------------------------------
