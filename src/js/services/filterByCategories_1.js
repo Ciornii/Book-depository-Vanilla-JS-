@@ -3,34 +3,24 @@ import GetResource from './getResource';
 export default class FilterByCategories extends GetResource {
    constructor() {
       super();
-      this.pageCounter = 6;
-      this.currentCounter = 0;
-      this.dataLength = 0;
-      this.data = [];
+    
    }
 
    req() {
       this.getResource("http://localhost:3000/books")
          .then(data => this.filter(data))
-         .then(this.render(this.data))
          .then(this.loadMore())
          .catch(err => console.error(err));
    }
 
    filter(response) {
-
-      console.log(this.data );
-      console.log(typeof this.data);
       
+     
+
       let triggers = document.querySelectorAll(".products__categories ul li a");
       triggers.forEach((element) => {
          element.addEventListener("click", (e) => {
             e.preventDefault();
-
-            this.pageCounter = 6;
-        this.currentCounter = 0;
-        this.dataLength = 0;
-        this.data = [];
             
             const wrapper = document.querySelector(".products__results_items");
             wrapper.innerHTML = '';
@@ -46,14 +36,11 @@ export default class FilterByCategories extends GetResource {
             console.log(filteredData );
             console.log(typeof filteredData);
         
-            this.data = filteredData;
+            this.render(filteredData);
             
          });
       });
    
-
-      console.log(this.data );
-      console.log(typeof this.data);
 
      
    }

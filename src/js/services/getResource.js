@@ -14,6 +14,20 @@ export default class GetResource {
             .catch(err => console.error(err));
     }
 
+
+    //TODO
+    // alta idee pentru filter:
+    // req {.then(data => this.filter(data))}
+    // filter (response) {
+    // eventlistner -> link -> textcontent(keyword)
+    //      if(keyword) {
+    //          filtrarea
+    //         this.data = filteredData
+    //      } else {
+    //         this.data = response
+    //      }
+    // }
+
     async getResource(url) {
         const res = await fetch(`${url}`);
 
