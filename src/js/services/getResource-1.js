@@ -9,45 +9,9 @@ export default class GetResource {
 
     req() {
         this.getResource("http://localhost:3000/books")
-            .then(data => this.filter(data))
+            .then(data => this.render(data))
             .then(this.loadMore())
             .catch(err => console.error(err));
-    }
-
-    filter(response) {
-        let filter = false;
-        let filteredData = [];
-
-        let triggers = document.querySelectorAll(".products__categories ul li a");
-        triggers.forEach((element) => {
-            element.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                this.pageCounter = 6;
-                this.currentCounter = 0;
-                
-                const wrapper = document.querySelector(".products__results_items");
-                wrapper.innerHTML = '';
-
-                this.loadMoreBtn.style.display = 'block';
-
-                let keyWord = element.textContent.toLowerCase().trim();
-
-                filteredData = response.filter((item) => {
-                    return Object.keys(item).some((key) => item[key].toLowerCase().trim().includes(keyWord));
-                });
-
-                this.render(filteredData);
-            });
-        });
-
-//TODO 1)block below 2)why 2 books business?
-
-        if (filter) {
-            this.render(filteredData);
-        } else {
-            this.render(response);
-        }
     }
 
     async getResource(url) {
@@ -71,7 +35,7 @@ export default class GetResource {
             this.currentCounter++;
 
             if (this.currentCounter >= this.dataLength) {
-                this.loadMoreBtn.style.display = 'none';
+                this.loadMoreBtn.remove();
                 break;
             }
         }
@@ -117,21 +81,16 @@ export default class GetResource {
             let remainItems = this.dataLength - this.pageCounter;
             if (remainItems > 9) {
                 this.pageCounter = this.pageCounter + 6;
-                // this.loadMoreBtn.style.display = 'none';
-                // setTimeout(() => {
-                //     this.loadMoreBtn.style.display = 'block';
-                // }, 10);
                 this.render(this.data);
             } else {
                 this.pageCounter = this.pageCounter + remainItems;
-                // this.loadMoreBtn.style.display = 'none';
-                // setTimeout(() => {
-                //     this.loadMoreBtn.style.display = 'block';
-                // }, 10);
                 this.render(this.data);
             }
 
-
+            this.loadMoreBtn.style.display = 'none';
+            setTimeout(() => {
+                this.loadMoreBtn.style.display = 'block';
+            }, 10);
         });
     }
 }

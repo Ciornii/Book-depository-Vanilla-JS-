@@ -19,6 +19,7 @@ export default class FilterByCategories extends GetResource {
 
    filter(response) {
 
+      console.log("this.data before foreach");
       console.log(this.data );
       console.log(typeof this.data);
       
@@ -41,17 +42,19 @@ export default class FilterByCategories extends GetResource {
                return Object.keys(item).some((key)=>item[key].includes(keyWord));
             });
             
+            console.log("inner foreach");
             console.log(response);
             console.log(typeof response);
             console.log(filteredData );
             console.log(typeof filteredData);
+            console.log("end inner foreach");
         
             this.data = filteredData;
             
          });
       });
    
-
+      console.log("this.data after foreach");
       console.log(this.data );
       console.log(typeof this.data);
 
