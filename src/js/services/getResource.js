@@ -15,8 +15,8 @@ export default class GetResource {
     }
 
     filter(response) {
-        let filter = false;
-        let filteredData = [];
+    
+        this.render(response);
 
         let triggers = document.querySelectorAll(".products__categories ul li a");
         triggers.forEach((element) => {
@@ -33,21 +33,14 @@ export default class GetResource {
 
                 let keyWord = element.textContent.toLowerCase().trim();
 
-                filteredData = response.filter((item) => {
-                    return Object.keys(item).some((key) => item[key].toLowerCase().trim().includes(keyWord));
+                let filteredData = response.filter((item) => {
+                   return item.category.toLowerCase().trim().includes(keyWord);
                 });
+                console.log(filteredData);
 
                 this.render(filteredData);
             });
         });
-
-//TODO 1)block below 2)why 2 books business?
-
-        if (filter) {
-            this.render(filteredData);
-        } else {
-            this.render(response);
-        }
     }
 
     async getResource(url) {
@@ -112,7 +105,8 @@ export default class GetResource {
     }
 
     loadMore() {
-        this.loadMoreBtn.addEventListener("click", () => {
+        this.loadMoreBtn.addEventListener("click", (e) => {
+            e.preventDefault();
 
             let remainItems = this.dataLength - this.pageCounter;
             if (remainItems > 9) {
@@ -130,7 +124,6 @@ export default class GetResource {
                 // }, 10);
                 this.render(this.data);
             }
-
 
         });
     }
