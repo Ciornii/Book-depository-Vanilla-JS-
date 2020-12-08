@@ -1,35 +1,38 @@
-const getResource = () => {
-    
-    let pageCounter = 6,
-        currentCounter = 0,
-        dataLength = 0,
-        data = [],
-        loadMoreBtn = document.querySelector("#loadMore");
-    
+//import GetResource from './services/getResource';
+//new GetResource().req();
 
-    (function req() {
-        getResource("http://localhost:3000/books")
-            .then(data => filter(data))
-            .then(loadMore())
+export default class GetResource {
+    constructor() {
+        this.pageCounter = 6;
+        this.currentCounter = 0;
+        this.dataLength = 0;
+        this.data = [];
+        this.loadMoreBtn = document.querySelector("#loadMore");
+    }
+
+    req() {
+        this.getResource("http://localhost:3000/books")
+            .then(data => this.filter(data))
+            .then(this.loadMore())
             .catch(err => console.error(err));
-    }());
+    }
 
-    function filter(response) {
+    filter(response) {
     
-        render(response);
+        this.render(response);
 
         let triggers = document.querySelectorAll(".products__filter ul li a");
         triggers.forEach((element) => {
             element.addEventListener("click", (e) => {
                 e.preventDefault();
 
-                pageCounter = 6;
-                currentCounter = 0;
+                this.pageCounter = 6;
+                this.currentCounter = 0;
                 
                 const wrapper = document.querySelector(".products__results_items");
                 wrapper.innerHTML = '';
 
-                loadMoreBtn.style.display = 'block';
+                this.loadMoreBtn.style.display = 'block';
 
                 let keyWord = element.textContent.toLowerCase().trim();
 
@@ -39,12 +42,12 @@ const getResource = () => {
                 });
                 console.log(filteredData);
 
-                render(filteredData);
+                this.render(filteredData);
             });
         });
     }
 
-    async function getResource(url) {
+    async getResource(url) {
         const res = await fetch(`${url}`);
 
         if (!res.ok) {
@@ -54,25 +57,25 @@ const getResource = () => {
         return await res.json();
     }
 
-    function render(response) {
-        dataLength = response.length;
-        data = response;
+    render(response) {
+        this.dataLength = response.length;
+        this.data = response;
 
-        while (currentCounter < pageCounter) {
+        while (this.currentCounter < this.pageCounter) {
 
-            template(response);
+            this.template(response);
 
-            currentCounter++;
+            this.currentCounter++;
 
-            if (currentCounter >= dataLength) {
-                loadMoreBtn.style.display = 'none';
+            if (this.currentCounter >= this.dataLength) {
+                this.loadMoreBtn.style.display = 'none';
                 break;
             }
         }
     }
 
-    function template(response) {
-        let i = currentCounter;
+    template(response) {
+        let i = this.currentCounter;
 
         let card = document.createElement('div');
         card.classList.add('products__item');
@@ -104,20 +107,18 @@ const getResource = () => {
         document.querySelector('.products__results_items').appendChild(card);
     }
 
-    function loadMore() {
-        loadMoreBtn.addEventListener("click", (e) => {
+    loadMore() {
+        this.loadMoreBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
-            let remainItems = dataLength - pageCounter;
+            let remainItems = this.dataLength - this.pageCounter;
             if (remainItems > 9) {
-                pageCounter = pageCounter + 6;
-                render(data);
+                this.pageCounter = this.pageCounter + 6;
+                this.render(this.data);
             } else {
-                pageCounter = pageCounter + remainItems;
-                render(data);
+                this.pageCounter = this.pageCounter + remainItems;
+                this.render(this.data);
             }
         });
     }
 }
-
-export default getResource;

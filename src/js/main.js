@@ -1,14 +1,9 @@
-import GetResource from './services/getResource';
-//import FilterByCategories from './services/filterByCategories';
+import getResource from './services/getResource';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
-    new GetResource().req();
-    //new FilterByCategories().req();
-   
-  
-  
+    getResource();
    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
