@@ -1,48 +1,21 @@
 const getResource = () => {
-    
+
     let pageCounter = 6,
         currentCounter = 0,
         dataLength = 0,
         data = [],
         loadMoreBtn = document.querySelector("#loadMore");
-    
 
+        
     (function req() {
         getResource("http://localhost:3000/books")
             .then(data => filter(data))
-            .then(loadMore())
+            .then(() => {
+                loadMore();
+            })
             .catch(err => console.error(err));
     }());
 
-    function filter(response) {
-    
-        render(response);
-
-        let triggers = document.querySelectorAll(".products__filter ul li a");
-        triggers.forEach((element) => {
-            element.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                pageCounter = 6;
-                currentCounter = 0;
-                
-                const wrapper = document.querySelector(".products__results_items");
-                wrapper.innerHTML = '';
-
-                loadMoreBtn.style.display = 'block';
-
-                let keyWord = element.textContent.toLowerCase().trim();
-
-                let filteredData = response.filter((item) => {
-                    return Object.keys(item).some((key) => item[key].toLowerCase().trim().includes(keyWord));
-                   //return item.category.toLowerCase().trim().includes(keyWord);
-                });
-                console.log(filteredData);
-
-                render(filteredData);
-            });
-        });
-    }
 
     async function getResource(url) {
         const res = await fetch(`${url}`);
@@ -53,6 +26,43 @@ const getResource = () => {
 
         return await res.json();
     }
+
+
+    function filter(response) {
+
+        render(response);
+
+        let triggers = document.querySelectorAll(".products__filter ul li a");
+        triggers.forEach((element) => {
+            element.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                triggers.forEach((link) => {
+                    link.classList.remove('active');
+                });
+                e.target.classList.add('active');
+
+                pageCounter = 6;
+                currentCounter = 0;
+
+                const wrapper = document.querySelector(".products__results_items");
+                wrapper.innerHTML = '';
+
+                loadMoreBtn.style.display = 'block';
+
+                let keyWord = element.textContent.toLowerCase().trim();
+
+                let filteredData = response.filter((item) => {
+                    return Object.keys(item).some((key) => item[key].toLowerCase().trim().includes(keyWord));
+                    //return item.category.toLowerCase().trim().includes(keyWord);
+                });
+                console.log(filteredData);
+
+                render(filteredData);
+            });
+        });
+    }
+
 
     function render(response) {
         dataLength = response.length;
@@ -70,6 +80,7 @@ const getResource = () => {
             }
         }
     }
+
 
     function template(response) {
         let i = currentCounter;
@@ -103,6 +114,7 @@ const getResource = () => {
                `;
         document.querySelector('.products__results_items').appendChild(card);
     }
+
 
     function loadMore() {
         loadMoreBtn.addEventListener("click", (e) => {
