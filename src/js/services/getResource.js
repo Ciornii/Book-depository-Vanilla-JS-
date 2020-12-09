@@ -10,9 +10,6 @@ const getResource = () => {
     (function req() {
         getResource("http://localhost:3000/books")
             .then(data => filter(data))
-            .then(() => {
-                loadMore();
-            })
             .catch(err => console.error(err));
     }());
 
@@ -31,6 +28,7 @@ const getResource = () => {
     function filter(response) {
 
         render(response);
+        loadMore();
 
         let triggers = document.querySelectorAll(".products__filter ul li a");
         triggers.forEach((element) => {
@@ -56,7 +54,6 @@ const getResource = () => {
                     return Object.keys(item).some((key) => item[key].toLowerCase().trim().includes(keyWord));
                     //return item.category.toLowerCase().trim().includes(keyWord);
                 });
-                console.log(filteredData);
 
                 render(filteredData);
             });
@@ -85,6 +82,15 @@ const getResource = () => {
     function template(response) {
         let i = currentCounter;
 
+        let threePoints = "...";
+        let title = "";
+
+        if (response[i].title.length > 45) {
+            title = response[i].title.slice(0, 44).concat(threePoints);
+        } else {
+            title = response[i].title;
+        }
+
         let card = document.createElement('div');
         card.classList.add('products__item');
         card.innerHTML = `
@@ -94,7 +100,7 @@ const getResource = () => {
                 <div class="products__item_bottom">
                    <div class="products__item_info">
                         <div class="products__item_title">
-                            ${response[i].title}
+                            ${title}
                         </div>
                         <div class="products__item_author">
                             by ${response[i].author}
@@ -119,6 +125,9 @@ const getResource = () => {
     function loadMore() {
         loadMoreBtn.addEventListener("click", (e) => {
             e.preventDefault();
+
+            e.target.classList.add("active");
+            setTimeout(() => { e.target.classList.remove("active"); }, 1000);
 
             let remainItems = dataLength - pageCounter;
             if (remainItems > 9) {

@@ -81,3 +81,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
 });
+
+
+window.addEventListener('load', (event) => {
+    document.querySelector(".loader").style.display = 'none';
+});

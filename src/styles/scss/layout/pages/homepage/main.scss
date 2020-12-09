@@ -131,6 +131,7 @@
               width: 100%;
               @include center_block;
               cursor: pointer;
+              background-color: $light-grey;
             }
           }
 
@@ -262,4 +263,11 @@
       }
     }
   }
+}
+
+
+.loader {
+  width: 50px;
+  display: block;
+  margin: 8rem auto;
 }
