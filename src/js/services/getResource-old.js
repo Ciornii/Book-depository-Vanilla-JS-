@@ -1,23 +1,23 @@
 import LocalStorage from '../utils/localStorage';
 
-export default class GetResource {
-    constructor() {
-        this.pageCounter = 6;
-        this.currentCounter = 0;
-        this.dataLength = 0;
-        this.data = [];
-        this.loadMoreBtn = document.querySelector("#loadMore");
-        this.localStorage = new LocalStorage();
-    }
+const getResource = () => {
 
+    let pageCounter = 6,
+        currentCounter = 0,
+        dataLength = 0,
+        data = [],
+        loadMoreBtn = document.querySelector("#loadMore");
 
-    req() {
-        this.getResource("http://localhost:3000/books")
-            .then(data => this.filter(data))
+        let localStorage = new LocalStorage();
+        
+    (function req() {
+        getResource("http://localhost:3000/books")
+            .then(data => filter(data))
             .catch(err => console.error(err));
-    }
+    }());
 
-    async getResource(url) {
+
+    async function getResource(url) {
         const res = await fetch(`${url}`);
 
         if (!res.ok) {
@@ -27,10 +27,11 @@ export default class GetResource {
         return await res.json();
     }
 
-    filter(response) {
 
-        this.render(response);
-        this.loadMore();
+    function filter(response) {
+
+        render(response);
+        loadMore();
 
         let triggers = document.querySelectorAll(".products__filter ul li a");
         triggers.forEach((element) => {
@@ -42,13 +43,13 @@ export default class GetResource {
                 });
                 e.target.classList.add('active');
 
-                this.pageCounter = 6;
-                this.currentCounter = 0;
+                pageCounter = 6;
+                currentCounter = 0;
 
                 const wrapper = document.querySelector(".products__results_items");
                 wrapper.innerHTML = '';
 
-                this.loadMoreBtn.style.display = 'block';
+                loadMoreBtn.style.display = 'block';
 
                 let keyWord = element.textContent.toLowerCase().trim();
 
@@ -57,49 +58,42 @@ export default class GetResource {
                     //return item.category.toLowerCase().trim().includes(keyWord);
                 });
 
-                this.render(filteredData);
+                render(filteredData);
             });
         });
     }
- 
 
-    render(response) {
-        this.dataLength = response.length;
-        this.data = response;
 
-        while (this.currentCounter < this.pageCounter) {
+    function render(response) {
+        dataLength = response.length;
+        data = response;
 
-            this.createCards(response);
+        while (currentCounter < pageCounter) {
 
-            this.currentCounter++;
+            createCards(response);
 
-            if (this.currentCounter >= this.dataLength) {
-                this.loadMoreBtn.style.display = 'none';
+            currentCounter++;
+
+            if (currentCounter >= dataLength) {
+                loadMoreBtn.style.display = 'none';
                 break;
             }
         }
     }
 
-    handleSetLocationStorage() {
-        setTimeout(function() {
-            let btns = document.querySelectorAll(".products__item_btns button");
-            btns.forEach((btn) => {
-                btn.addEventListener("click", (e) => {
-                    e.preventDefault();
-    
-                    console.log('test');
-                });
-            });
-        }, 1000);  
+
+    function handleSetLocationStorage() {
+        console.log('test');
     }
 
-    createCards(response) {
-        const booksStore = this.localStorage.getBooks();
+
+    function createCards(response) {
+        const booksStore = localStorage.getBooks();
         let activeClass = '';
         let threePoints = "...";
         let title = "";
 
-        let i = this.currentCounter;
+        let i = currentCounter;
 
         if (booksStore.indexOf(response[i].id) === -1) {
             activeClass = '';
@@ -136,7 +130,7 @@ export default class GetResource {
                    </a>
                    <div class="products__item_btns">
                        <button class="btn btn--green">+ My Books</button>
-                       <button class="btn ${activeClass}">
+                       <button class="btn ${activeClass}" onclick="handleSetLocationStorage();">
                             + Wishlist
                        </button>
                    </div>
@@ -145,26 +139,24 @@ export default class GetResource {
         document.querySelector('.products__results_items').appendChild(card);
     }
 
-    loadMore() {
-        this.loadMoreBtn.addEventListener("click", (e) => {
+
+    function loadMore() {
+        loadMoreBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
             e.target.classList.add("active");
             setTimeout(() => { e.target.classList.remove("active"); }, 1000);
 
-            let remainItems = this.dataLength - this.pageCounter;
+            let remainItems = dataLength - pageCounter;
             if (remainItems > 9) {
-                this.pageCounter = this.pageCounter + 6;
-                this.render(this.data);
+                pageCounter = pageCounter + 6;
+                render(data);
             } else {
-                this.pageCounter = this.pageCounter + remainItems;
-                this.render(this.data);
+                pageCounter = pageCounter + remainItems;
+                render(data);
             }
         });
     }
 }
 
-
-const getBooks = new GetResource();
-getBooks.req();
-getBooks.handleSetLocationStorage();
+export default getResource;

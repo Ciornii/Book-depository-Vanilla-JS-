@@ -1,9 +1,10 @@
-import getResource from './services/getResource';
+import LocalStorage from './utils/localStorage';
+import GetResource from './services/getResource';
+
+
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
-
-    getResource();
    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader

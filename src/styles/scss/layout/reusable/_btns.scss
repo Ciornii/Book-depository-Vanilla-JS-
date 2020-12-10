@@ -37,6 +37,10 @@
   }
 }
 
+.btn.active {
+  background-color: $dark-grey;
+}
+
 .btn--green {
   color: white;
   background-color: $green;
