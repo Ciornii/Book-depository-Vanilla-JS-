@@ -1,5 +1,6 @@
 {
-  "books": [{
+  "books": [
+    {
       "id": 1,
       "category": "personal development",
       "title": "The monk who sold his ferrari",

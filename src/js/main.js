@@ -1,10 +1,12 @@
 import LocalStorage from './utils/localStorage';
-import GetResource from './services/getResource';
+import cards from './modules/cards';
 
 
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
+
+    cards();
    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
