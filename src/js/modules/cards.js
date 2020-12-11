@@ -2,7 +2,6 @@ import {
     getResource
 } from '../services/services';
 
-import LocalStorage from '../utils/localStorage';
 
 function cards() {
     class BookCard {
@@ -12,14 +11,12 @@ function cards() {
             this.dataLength = 0;
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
-            this.localStorage = new LocalStorage();
         }
 
         filter(response) {
 
             this.render(response);
             this.loadMore();
-            this.handlerSetLocalStorage();
 
             let triggers = document.querySelectorAll(".products__filter ul li a");
             triggers.forEach((element) => {
@@ -45,7 +42,6 @@ function cards() {
                         return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
                         //return item.category.toLowerCase().trim().includes(keyWord);
                     });
-                    this.handlerSetLocalStorage();
 
                     this.render(filteredData);
                 });
@@ -70,51 +66,13 @@ function cards() {
             }
         }
 
-        handlerSetLocalStorage() {
-            setTimeout(function () {
-                let btns = document.querySelectorAll(".products__item_btns button");
-                btns.forEach((btn) => {
-                    btn.addEventListener("click", (e) => {
-                        e.preventDefault();
-
-                        let id = e.target.getAttribute("data-id");
-
-                        // const{ pushProduct, books } = putBooks(id);
-
-                        // if (pushProduct) {
-                        //     element.classList.add(this.classNameActive);
-                        //     element.innerText = this.labelRemove;
-                        // } else {
-                        //     element.classList.remove(this.classNameActive);
-                        //     element.innerText = this.labelAdd;
-                        // }
-
-                        // attrs.forEach((attr) => {
-                        //     if (attr.includes('data-id')) {
-                        //         id = attr;
-                        //     }
-                        // });
-                      
-
-                        console.log(id);
-                    });
-                });
-            }, 1000);
-        }
 
         createCards(response) {
-            const booksStore = this.localStorage.getBooks();
             let activeClass = '';
             let threePoints = "...";
             let title = "";
 
             let i = this.currentCounter;
-
-            if (booksStore.indexOf(response[i].id) === -1) {
-                activeClass = '';
-            } else {
-                activeClass = 'active';
-            }
 
             if (response[i].title.length > 45) {
                 title = response[i].title.slice(0, 44).concat(threePoints);
@@ -145,7 +103,7 @@ function cards() {
                    </a>
                    <div class="products__item_btns">
                        <button class="btn btn--green">+ My Books</button>
-                       <button class="btn ${activeClass}" data-id="${response[i].id}">
+                       <button class="btn ${activeClass}>
                             + Wishlist
                        </button>
                    </div>

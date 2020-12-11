@@ -1,28 +1,28 @@
 export default class LocalStorage {
     constructor() {
-        this.keyName = 'books';
+        this.keyName = 'items';
     }
-    getBooks() {
-        const booksLocalStorage = localStorage.getItem(this.keyName);
-        if (booksLocalStorage !== null) {
-            return JSON.parse(booksLocalStorage);
+    getItems() {
+        const itemsLocalStorage = localStorage.getItem(this.keyName);
+        if (itemsLocalStorage !== null) {
+            return JSON.parse(itemsLocalStorage);
         }
         return [];
     }
-    putBooks(id) {
-        let books = this.getBooks();
-        let pushProduct = false;
-        const index = books.indexOf(id);
+    putItems(id) {
+        let items = this.getItems();
+        let pushItem = false;
+        const index = items.indexOf(id);
 
         if (index === -1) {
-            books.push(id);
-            pushProduct = true;
+            items.push(id);
+            pushItem = true;
         } else {
-            books.splice(index, 1);
+            items.splice(index, 1);
         }
 
-        localStorage.setItem(this.keyName, JSON.stringify(books));
+        localStorage.setItem(this.keyName, JSON.stringify(items));
 
-        return { pushProduct, books };
+        return { pushItem, items };
     }
 }
