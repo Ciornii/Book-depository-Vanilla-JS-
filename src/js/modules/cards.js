@@ -45,7 +45,6 @@ function cards() {
                         return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
                         //return item.category.toLowerCase().trim().includes(keyWord);
                     });
-                    this.handlerSetLocalStorage();
 
                     this.render(filteredData);
                 });
@@ -71,35 +70,25 @@ function cards() {
         }
 
         handlerSetLocalStorage() {
-            setTimeout(function () {
-                let btns = document.querySelectorAll(".products__item_btns button");
-                btns.forEach((btn) => {
-                    btn.addEventListener("click", (e) => {
-                        e.preventDefault();
+            document.addEventListener("click", (e) => {
+                e.preventDefault();
 
-                        let id = e.target.getAttribute("data-id");
+                if (e.target.matches('[data-id]')) {
 
-                        // const{ pushProduct, books } = putBooks(id);
+                    let id = e.target.getAttribute("data-id");
 
-                        // if (pushProduct) {
-                        //     element.classList.add(this.classNameActive);
-                        //     element.innerText = this.labelRemove;
-                        // } else {
-                        //     element.classList.remove(this.classNameActive);
-                        //     element.innerText = this.labelAdd;
-                        // }
+                    const {
+                        pushProduct,
+                        books
+                    } = this.localStorage.putBooks(id);
 
-                        // attrs.forEach((attr) => {
-                        //     if (attr.includes('data-id')) {
-                        //         id = attr;
-                        //     }
-                        // });
-                      
-
-                        console.log(id);
-                    });
-                });
-            }, 1000);
+                    if (pushProduct) {
+                        e.target.classList.add('active');
+                    } else {
+                        e.target.classList.remove('active');
+                    }
+                }
+            });
         }
 
         createCards(response) {
