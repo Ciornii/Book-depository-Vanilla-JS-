@@ -1,7 +1,4 @@
-import LocalStorage from './utils/localStorage';
 import cards from './modules/cards';
-
-
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
