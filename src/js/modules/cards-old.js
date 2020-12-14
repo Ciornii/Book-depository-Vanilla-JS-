@@ -2,6 +2,8 @@ import {
     getResource
 } from '../services/services';
 
+import LocalStorage from '../utils/localStorage';
+
 function cards() {
     class BookCard {
         constructor() {
@@ -10,12 +12,14 @@ function cards() {
             this.dataLength = 0;
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
+            this.booksStorage = new LocalStorage();
         }
 
         filter(response) {
 
             this.render(response);
             this.loadMore();
+            this.handlerSetLocalStorage();
 
             let triggers = document.querySelectorAll(".products__filter ul li a");
             triggers.forEach((element) => {
@@ -65,6 +69,43 @@ function cards() {
             }
         }
 
+        handlerSetLocalStorage() {
+            document.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                if (e.target.matches('[data-id]')) {
+
+                    let id = e.target.getAttribute("data-id");
+
+                    const {
+                        pushItem,
+                        books
+                    } = this.booksStorage.putBooks(id);
+
+                    if (pushItem) {
+                        e.target.classList.add('active');
+                    } else {
+                        e.target.classList.remove('active');
+                    }
+                }
+            });
+
+            const booksStore = this.booksStorage.getBooks();
+
+            document.querySelectorAll('[data-id]').forEach(btn => {
+                let activeClass = '';
+                let id = btn.getAttribute("data-id");
+                console.log(id);
+
+                if (booksStore.indexOf(id) === -1) {
+                    activeClass = '';
+                } else {
+                    activeClass = 'active';
+                }
+
+            });
+        }
+
         createCards(response) {
             let threePoints = "...";
             let title = "";
@@ -77,27 +118,27 @@ function cards() {
             }
 
             let card = document.createElement('div');
-            card.classList.add('product__card');
+            card.classList.add('products__item');
             card.innerHTML = `
-                <div class="product__img">
+                <div class="products__item_img">
                    <img src="${response[i].photo}" alt="${response[i].title}">
                 </div>
-                <div class="product__bottom">
-                   <div class="product__info">
-                        <div class="product__title">
+                <div class="products__item_bottom">
+                   <div class="products__item_info">
+                        <div class="products__item_title">
                             ${title}
                         </div>
-                        <div class="product__author">
+                        <div class="products__item_author">
                             by ${response[i].author}
                         </div>
                    </div>
-                   <a href="#" class="product__link">
+                   <a href="#" class="products__item_view">
                        Quick View 
                        <svg>
                            <use xlink:href="assets/icons/sprite.svg#eye"></use>
                        </svg>
                    </a>
-                   <div class="product__btns">
+                   <div class="products__item_btns">
                        <button class="btn btn--green">+ My Books</button>
                        <button class="btn" data-id="${response[i].id}">
                             + Wishlist
@@ -105,7 +146,7 @@ function cards() {
                    </div>
                 </div>
                `;
-            document.querySelector('.products__cards').appendChild(card);
+            document.querySelector('.products__results_items').appendChild(card);
         }
 
         loadMore() {

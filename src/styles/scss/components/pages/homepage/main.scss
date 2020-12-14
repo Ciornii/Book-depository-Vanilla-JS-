@@ -52,7 +52,7 @@
       position: relative;
       width: 100%;
 
-      .products__results_top {
+      .products__settings {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
@@ -74,11 +74,11 @@
           }
         }
 
-        .products__view {
+        .products__views {
           display: flex;
           flex-wrap: nowrap;
 
-          &_item {
+          .products__view {
             position: relative;
             width: 40px;
             height: 40px;
@@ -104,13 +104,13 @@
         }
       }
 
-      .products__results_items {
+      .products__cards {
         position: relative;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
 
-        .products__item {
+        .product__card {
           position: relative;
           text-align: left;
           padding: 1.5rem 2rem;
@@ -121,7 +121,7 @@
           border: 1px solid transparent;
           transition: all 0.3s ease;
 
-          .products__item_img {
+          .product__img {
             height: 345px;
             width: 100%;
             overflow: hidden;
@@ -135,7 +135,7 @@
             }
           }
 
-          .products__item_bottom {
+          .product__bottom {
             position: relative;
             background-color: white;
             transition: all 0.5s ease;
@@ -144,7 +144,7 @@
             flex-direction: column;
             z-index: 2;
 
-            .products__item_info {
+            .product__info {
               height: 105px;
               padding: 1rem 0;
               border-bottom: 1px solid $border-color;
@@ -155,19 +155,19 @@
 
               justify-content: center;
 
-              .products__item_title {
+              .product__title {
                 font-weight: bold;
                 color: $black;
               }
 
-              .products__item_author {
+              .product__author {
                 @include font-size(15px);
                 color: $dark-grey;
                 margin-top: 0.2rem;
               }
             }
 
-            a.products__item_view {
+            a.product__link {
               position: relative;
               @include center_block;
               width: 100px;
@@ -197,7 +197,7 @@
               }
             }
 
-            .products__item_btns {
+            .product__btns {
               display: flex;
               flex-wrap: nowrap;
               justify-content: space-between;
@@ -210,11 +210,11 @@
           }
         }
 
-        .products__item:hover {
+        .product__card:hover {
           border: 1px solid $border-color;
           box-shadow: 2px 3px 12px rgba(184, 184, 184, 0.2);
 
-          .products__item_bottom {
+          .product__bottom {
             margin-top: -6.9rem;
           }
         }
