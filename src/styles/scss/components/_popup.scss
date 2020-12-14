@@ -1,4 +1,4 @@
-.wishlist-popup {
+.popup-list {
   @include width(312px);
   min-height: 263px;
   background-color: white;
@@ -11,7 +11,7 @@
   z-index: 100;
   visibility: hidden;
 
-  .wishlist-popup__title {
+  .popup-list__main-title {
     @include font-size(20px);
     font-weight: bold;
     color: $black;
@@ -20,23 +20,23 @@
 	 margin-bottom: 14px;
   }
 
-  .wishlist-popup__item {
+  .popup-list__item {
     padding: 14px 3px 12px 3px;
     border-top: 1px solid $border-color;
 
-    &_title {
+    .popup-list__title {
 		 @include font-size(14px);
       font-weight: 600;
       color: $black;
     }
 
-    &_author {
+    .popup-list__author {
       @include font-size(13px);
       color: $dark-grey;
     }
   }
 
-  .wishlist-popup__link {
+  .popup-list__link {
     position: relative;
     @include center_block;
     width: 136px;
@@ -54,7 +54,7 @@
     }
   }
 
-  .wishlist-popup__close {
+  .popup-list__close {
     position: absolute;
     top: 0;
     right: 0;
@@ -70,7 +70,7 @@
     }
   }
 
-  .wishlist-popup__triangle {
+  .popup-list__triangle {
     position: absolute;
     top: -14px;
     right: 16px;
@@ -100,7 +100,7 @@
   }
 }
 
-.wishlist-popup.show {
+.popup-list.show {
   visibility: visible;
   animation: fadeIn 0.2s;
 }

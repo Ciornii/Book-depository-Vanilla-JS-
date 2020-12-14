@@ -98,8 +98,8 @@ function cards() {
                        </svg>
                    </a>
                    <div class="product__btns">
-                       <button class="btn btn--green">+ My Books</button>
-                       <button class="btn" data-id="${response[i].id}">
+                       <button class="btn btn--green my-books-btn">+ My Books</button>
+                       <button class="btn wishlist-btn">
                             + Wishlist
                        </button>
                    </div>

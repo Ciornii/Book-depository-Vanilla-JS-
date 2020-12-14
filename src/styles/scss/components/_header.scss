@@ -59,7 +59,7 @@
           padding-right: 50px;
         }
 
-        &__icon {
+        .navbar__icon {
           height: 40px;
           width: 40px;
           border-radius: 50px;
@@ -80,13 +80,13 @@
         display: flex;
         position: relative;
 
-        &__user,
-        &__books,
-        &__wishlist {
+        .navbar__user,
+        .navbar__my-books,
+        .navbar__wishlist {
           position: relative;
           margin-right: 28px;
 
-          &_icon {
+          .navbar__icon {
             display: block;
             position: relative;
             height: 26px;
@@ -104,7 +104,7 @@
             }
           }
 
-          &_count {
+          .navbar__counter {
             border-radius: 50%;
             background-color: #e65a61ce;
             position: absolute;
@@ -121,34 +121,34 @@
           }
         }
 
-        &__user,
-        &__books,
-        &__wishlist {
+        .navbar__user,
+        .navbar__my-books,
+        .navbar__wishlist {
        
           &:hover {
             svg {
               fill: white;
             }
 
-            .navbar__icons__wishlist_count {
+            .navbar__counter {
               background-color: $red;
             }
 
-            .navbar__icons__books_count {
+            .navbar__counter {
               background-color: $red;
             }
           }
         }
 
-        &__user {
-          &_icon {
+        .navbar__user {
+          .navbar__icon {
             svg {
               width: 24px;
             }
           }
         }
 
-        &__wishlist {
+        .navbar__wishlist {
           margin-right: 0px;
         }
       }

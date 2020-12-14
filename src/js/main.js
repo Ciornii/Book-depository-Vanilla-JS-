@@ -1,12 +1,19 @@
 import cards from './modules/cards';
+import wishlist from './modules/wishlist';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
-    cards();
+
+    (async function () {
+        await cards();
+        wishlist();
+    }());
+
    
-    // --------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------- Preloader
+    //==============================================================================================
+    //============================================================ Preloader
+    
     const preloader = document.querySelector('.preloader');
     if (preloader) {
         setTimeout(function () {
@@ -19,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    // --------------------------------------------------------------------------------------------------------
-    // -------------------------------------------------------------------  NavBar on Scroll
+    //==============================================================================================
+    //============================================================  NavBar on Scroll
+
     window.onscroll = function () {
         scrollFunction();
     };
@@ -35,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    // --------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------- Mobile Menu
+    //==============================================================================================
+    //============================================================ Mobile Menu
 
     let menuToggle = document.querySelectorAll('.menu-toggle svg'),
         menu = document.querySelector('.mmenu');
@@ -48,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
 
-    // --------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------- Smooth scroll
+   //==============================================================================================
+   //============================================================ Smooth scroll
 
     const upElem = document.querySelector('.pageUp');
 
@@ -64,16 +72,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
 
-    // --------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------- Pop up
-    const popup = document.querySelector(".wishlist-popup");
+    //==============================================================================================
+    //============================================================ Pop up
+
+    const popup = document.querySelector(".popup-list");
    
     document.addEventListener("click", (e) => {
-        if(e.target.closest('.wishlist-popup__close')) {
+        if(e.target.closest('.popup-list__close')) {
             popup.classList.remove("show");  
-        } else if(e.target.closest('.navbar__icons__wishlist')){
+        } else if(e.target.closest('.navbar__wishlist')){
             popup.classList.toggle("show");
-        } else if(e.target.closest('.wishlist-popup')) {
+        } else if(e.target.closest('.popup-list')) {
             popup.classList.add("show");
         } else {
             popup.classList.remove("show");
