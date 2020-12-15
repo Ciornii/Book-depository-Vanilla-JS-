@@ -2,6 +2,8 @@ import {
     getResource
 } from '../services/services';
 
+import popupList from './popupList';
+
 function cards() {
     class BookCard {
         constructor() {
@@ -10,12 +12,14 @@ function cards() {
             this.dataLength = 0;
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
+            
         }
 
         filter(response) {
 
             this.render(response);
             this.loadMore();
+            popupList();
 
             let triggers = document.querySelectorAll(".products__filter ul li a");
             triggers.forEach((element) => {
@@ -30,7 +34,7 @@ function cards() {
                     this.pageCounter = 6;
                     this.currentCounter = 0;
 
-                    const wrapper = document.querySelector(".products__results_items");
+                    const wrapper = document.querySelector(".products__cards");
                     wrapper.innerHTML = '';
 
                     this.loadMoreBtn.style.display = 'block';
@@ -43,6 +47,7 @@ function cards() {
                     });
 
                     this.render(filteredData);
+                    popupList();
                 });
             });
         }
@@ -99,7 +104,7 @@ function cards() {
                    </a>
                    <div class="product__btns">
                        <button class="btn btn--green my-books-btn">+ My Books</button>
-                       <button class="btn wishlist-btn">
+                       <button class="btn" data-wishlist-btn>
                             + Wishlist
                        </button>
                    </div>
@@ -125,6 +130,8 @@ function cards() {
                     this.pageCounter = this.pageCounter + remainItems;
                     this.render(this.data);
                 }
+
+                popupList();
             });
         }
     }

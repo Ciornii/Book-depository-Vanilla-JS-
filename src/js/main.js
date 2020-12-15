@@ -1,19 +1,18 @@
 import cards from './modules/cards';
-import wishlist from './modules/wishlist';
+
+import 
+    popupList
+ from './modules/popupList';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
+    cards();
+   // popupList();
 
-    (async function () {
-        await cards();
-        wishlist();
-    }());
-
-   
     //==============================================================================================
     //============================================================ Preloader
-    
+
     const preloader = document.querySelector('.preloader');
     if (preloader) {
         setTimeout(function () {
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function scrollFunction() {
         const navbar = document.querySelector(".navbar");
-        if (document.body.scrollTop > 50|| document.documentElement.scrollTop > 50) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             navbar.classList.add('on-scroll');
         } else {
             navbar.classList.remove('on-scroll');
@@ -56,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
 
-   //==============================================================================================
-   //============================================================ Smooth scroll
+    //==============================================================================================
+    //============================================================ Smooth scroll
 
     const upElem = document.querySelector('.pageUp');
 
@@ -76,13 +75,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //============================================================ Pop up
 
     const popup = document.querySelector(".popup-list");
-   
+
     document.addEventListener("click", (e) => {
-        if(e.target.closest('.popup-list__close')) {
-            popup.classList.remove("show");  
-        } else if(e.target.closest('.navbar__wishlist')){
+        if (e.target.closest('.popup-list__close')) {
+            popup.classList.remove("show");
+        } else if (e.target.closest('.navbar__wishlist')) {
             popup.classList.toggle("show");
-        } else if(e.target.closest('.popup-list')) {
+        } else if (e.target.closest('.popup-list')) {
             popup.classList.add("show");
         } else {
             popup.classList.remove("show");

@@ -1,9 +1,10 @@
 .popup-list {
-  @include width(312px);
-  min-height: 263px;
+  width: 312px;
+  max-height: 378px;
+  min-height: 155px;
   background-color: white;
   border: 1px solid $border-color;
-  padding: 28px 22px 21px 22px;
+  padding: 28px 16px 21px 22px;
   position: absolute;
   right: -3px;
   top: 41px;
@@ -16,23 +17,40 @@
     font-weight: bold;
     color: $black;
     text-align: left;
-	 text-transform: uppercase;
-	 margin-bottom: 14px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
   }
 
-  .popup-list__item {
-    padding: 14px 3px 12px 3px;
-    border-top: 1px solid $border-color;
+  .popup-list__wrapper {
+    max-height: 235px;
+    overflow-y: scroll;
 
-    .popup-list__title {
-		 @include font-size(14px);
-      font-weight: 600;
-      color: $black;
-    }
+    .popup-list__item {
+      position: relative;
+      border-top: 1px solid $border-color;
+      padding: 14px 30px 12px 3px;
+      margin-right: 1rem;
 
-    .popup-list__author {
-      @include font-size(13px);
-      color: $dark-grey;
+      .popup-list__title {
+        @include font-size(14px);
+        font-weight: 600;
+        color: $black;
+      }
+
+      .popup-list__author {
+        @include font-size(13px);
+        color: $dark-grey;
+      }
+
+      .popup-list__delete {
+        width: 15px;
+        height: 15px;
+        overflow: hidden;
+        background-color: red;
+        position: absolute;
+        @include align-center(vertical);
+        right: 0px;
+      }
     }
   }
 
@@ -46,7 +64,7 @@
     text-decoration: underline;
     overflow: hidden;
     white-space: nowrap;
-    transition: all 0.2s ease;
+    transition: text-decoration 0.2s ease;
     margin-top: 2rem;
 
     &:hover {
