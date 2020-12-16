@@ -83,6 +83,7 @@ function cards() {
 
             let card = document.createElement('div');
             card.classList.add('product__card');
+            card.setAttribute("data-id", `${response[i].id}`);
             card.innerHTML = `
                 <div class="product__img">
                    <img src="${response[i].photo}" alt="${response[i].title}">
