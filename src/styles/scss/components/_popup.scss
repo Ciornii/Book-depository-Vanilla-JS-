@@ -42,14 +42,30 @@
         color: $dark-grey;
       }
 
-      .popup-list__delete {
-        width: 15px;
-        height: 15px;
+      button.popup-list__delete {
+        width: 16px;
+        height: 16px;
         overflow: hidden;
-        background-color: red;
+        background-color: transparent;
         position: absolute;
         @include align-center(vertical);
         right: 0px;
+
+        svg {
+          height: 15px;
+          width: 15px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          fill: $dark-grey;
+          transition: fill .2s ease;
+        }
+
+        &:hover {
+          svg {
+            fill: $black;
+          }
+        }
       }
     }
   }

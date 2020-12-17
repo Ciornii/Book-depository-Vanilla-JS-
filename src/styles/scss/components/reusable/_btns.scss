@@ -37,10 +37,6 @@
   }
 }
 
-.btn.active {
-  background-color: $dark-grey;
-}
-
 .btn--green {
   color: white;
   background-color: $green;
@@ -50,8 +46,21 @@
   }
 }
 
+
+.btn.active {
+  background-color: $grey;
+
+  &:hover {
+    background-color: $grey;
+  }
+}
+
 button:disabled {
-  background-color: rgb(122, 122, 122);
+  background-color: $grey;
+
+  &:hover {
+    background-color: $grey;
+  }
 }
 
 // ----------------------------------------------------

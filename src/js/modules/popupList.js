@@ -15,14 +15,20 @@ const popupList = () => {
       <li class="popup-list__item" data-id="${id}">
         <div class="popup-list__title">${title}</div>
         <div class="popup-list__author">${author}</div>
-        <button class="popup-list__delete"></button>
+        <button class="popup-list__delete">
+          <svg>
+            <use xlink:href="assets/icons/sprite.svg#delete"></use>
+          </svg>
+        </button>
       </li>
     `;
   };
 
   const deleteItems = (itemParent) => {
     let id = itemParent.dataset.id;
-    document.querySelector(`.product__card[data-id="${id}"]`).querySelector('[data-wishlist-btn]').disabled = false;
+    if (document.querySelector(`.product__card[data-id="${id}"]`)) {
+      document.querySelector(`.product__card[data-id="${id}"]`).querySelector('[data-wishlist-btn]').disabled = false;
+    }
     itemParent.remove();
     itemsCounter();
   };
@@ -42,11 +48,11 @@ const popupList = () => {
   });
 
   productsList.addEventListener('click', e => {
-    if (e.target.classList.contains('popup-list__delete')) {
+    let deleteBtn = e.target.closest('.popup-list__delete');
+    if (e.target == deleteBtn || deleteBtn.contains(e.target)) {
       deleteItems(e.target.closest('.popup-list__item'));
     }
   });
-
 
 };
 
