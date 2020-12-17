@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             popup.classList.remove("show");
         } else if (e.target.closest('.navbar__wishlist')) {
             popup.classList.toggle("show");
-        } else if (e.target.closest('.popup-list')) {
+        } else if (e.target == popup || popup.contains(e.target)) {
             popup.classList.add("show");
         } else {
             popup.classList.remove("show");

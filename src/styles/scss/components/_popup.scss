@@ -30,6 +30,11 @@
       border-top: 1px solid $border-color;
       padding: 14px 30px 12px 3px;
       margin-right: 1rem;
+      height: 79px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
 
       .popup-list__title {
         @include font-size(14px);
@@ -57,13 +62,13 @@
           position: absolute;
           left: 0;
           top: 0;
-          fill: $dark-grey;
+          fill: $icon-color;
           transition: fill .2s ease;
         }
 
         &:hover {
           svg {
-            fill: $black;
+            fill: $dark-grey;
           }
         }
       }

@@ -48,6 +48,9 @@ const popupList = () => {
   });
 
   productsList.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     let deleteBtn = e.target.closest('.popup-list__delete');
     if (e.target == deleteBtn || deleteBtn.contains(e.target)) {
       deleteItems(e.target.closest('.popup-list__item'));
