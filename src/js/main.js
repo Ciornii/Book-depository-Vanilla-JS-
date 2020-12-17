@@ -1,15 +1,11 @@
 import cards from './modules/cards';
 
-import 
-    popupList
- from './modules/popupList';
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
     cards();
-   // popupList();
-
+ 
     //==============================================================================================
     //============================================================ Preloader
 

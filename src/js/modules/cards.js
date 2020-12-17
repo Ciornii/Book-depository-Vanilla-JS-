@@ -2,7 +2,7 @@ import {
     getResource
 } from '../services/services';
 
-import popupList from './popupList';
+import booksStorage from './booksStorage';
 
 function cards() {
     class BookCard {
@@ -19,7 +19,7 @@ function cards() {
 
             this.render(response);
             this.loadMore();
-            popupList();
+            booksStorage();
 
             let triggers = document.querySelectorAll(".products__filter ul li a");
             triggers.forEach((element) => {
@@ -47,7 +47,7 @@ function cards() {
                     });
 
                     this.render(filteredData);
-                    popupList();
+                    booksStorage();
                 });
             });
         }
@@ -132,7 +132,7 @@ function cards() {
                     this.render(this.data);
                 }
 
-                popupList();
+                booksStorage();
             });
         }
     }
