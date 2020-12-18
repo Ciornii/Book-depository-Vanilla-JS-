@@ -68,12 +68,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     //==============================================================================================
-    //============================================================ Pop up
+    //============================================================ Pop up   // TODO
 
-    const popup = document.querySelector(".popup-list");
+    const popup = document.querySelector('.popup-list[data-popup="Wish List"]');
 
     document.addEventListener("click", (e) => {
-        if (e.target.closest('.popup-list__close')) {
+        if (e.target.closest('.popup-list__close[data-popup="Wish List"]')) {
             popup.classList.remove("show");
         } else if (e.target.closest('.navbar__wishlist')) {
             popup.classList.toggle("show");
@@ -81,6 +81,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             popup.classList.add("show");
         } else {
             popup.classList.remove("show");
+        }
+    });
+
+    const popup2 = document.querySelector('.popup-list[data-popup="My Books"]');
+
+    document.addEventListener("click", (e) => {
+        if (e.target.closest('.popup-list__close[data-popup="My Books"]')) {
+            popup2.classList.remove("show");
+        } else if (e.target.closest('.navbar__my-books')) {
+            popup2.classList.toggle("show");
+        } else if (e.target == popup2 || popup2.contains(e.target)) {
+            popup2.classList.add("show");
+        } else {
+            popup2.classList.remove("show");
         }
     });
 

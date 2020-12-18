@@ -30,7 +30,7 @@
                                 <use xlink:href="assets/icons/sprite.svg#book"></use>
                             </svg>
                         </div>
-                        <div class="navbar__counter">0</div>
+                        <div class="navbar__counter" data-counter="My Books">0</div>
                     </div>
                     <div class="navbar__wishlist">
                         <div class="navbar__icon">
@@ -38,20 +38,36 @@
                                 <use xlink:href="assets/icons/sprite.svg#heart"></use>
                             </svg>
                         </div>
-                        <div class="navbar__counter" data-wishlist-counter>0</div>
+                        <div class="navbar__counter" data-counter="Wish List">0</div>
                     </div>
-                    <!-- start wishlist popup-list-->
-                    <div class="popup-list">
-                        <div class="popup-list__main-title">My Wish List</div>
-                        <div class="popup-list__close">
+                    <!-- start my-books popup-list-->
+                    <div class="popup-list" data-popup="My Books">
+                        <div class="popup-list__main-title">My Books</div>
+                        <div class="popup-list__close" data-popup="My Books">
                             <svg>
                                 <use xlink:href="assets/icons/sprite.svg#close"></use>
                             </svg>
                         </div>
-                        <ul class="popup-list__wrapper">
+                        <ul class="popup-list__wrapper" data-popup="My Books">
                         </ul>
                         <a href="#" class="popup-list__link">
-                            View Full Wish List
+                            View Full List
+                        </a>
+                        <div class="popup-list__triangle">
+                        </div>
+                    </div> <!-- end my-books popup-list-->
+                    <!-- start wishlist popup-list-->
+                    <div class="popup-list" data-popup="Wish List">
+                        <div class="popup-list__main-title">My Wish List</div>
+                        <div class="popup-list__close" data-popup="Wish List">
+                            <svg>
+                                <use xlink:href="assets/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                        <ul class="popup-list__wrapper" data-popup="Wish List">
+                        </ul>
+                        <a href="#" class="popup-list__link">
+                            View Full List
                         </a>
                         <div class="popup-list__triangle">
                         </div>

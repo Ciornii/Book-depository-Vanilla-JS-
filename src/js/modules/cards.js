@@ -2,9 +2,28 @@ import {
     getResource
 } from '../services/services';
 
-import booksStorage from './booksStorage';
+import BooksStorage from './booksStorage';
 
 function cards() {
+
+    const allStorages = () => {
+        const wishlist = new BooksStorage({
+            addBtn: '[data-add-to="Wish List"]',
+            popupListWrapper: '.popup-list__wrapper[data-popup="Wish List"]',
+            popupTrigger: '.navbar__wishlist',
+            counter: '[data-counter="Wish List"]',
+            storageName: 'Wish List'
+        });
+        wishlist.init();
+        const mybooks = new BooksStorage({
+            addBtn: '[data-add-to="My Books"]',
+            popupListWrapper: '.popup-list__wrapper[data-popup="My Books"]',
+            popupTrigger: '.navbar__my-books',
+            counter: '[data-counter="My Books"]',
+            storageName: 'My Books'
+        });
+        mybooks.init();
+    };
     class BookCard {
         constructor() {
             this.pageCounter = 6;
@@ -12,62 +31,6 @@ function cards() {
             this.dataLength = 0;
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
-            
-        }
-
-        filter(response) {
-
-            this.render(response);
-            this.loadMore();
-            booksStorage();
-
-            let triggers = document.querySelectorAll(".products__filter ul li a");
-            triggers.forEach((element) => {
-                element.addEventListener("click", (e) => {
-                    e.preventDefault();
-
-                    triggers.forEach((link) => {
-                        link.classList.remove('active');
-                    });
-                    e.target.classList.add('active');
-
-                    this.pageCounter = 6;
-                    this.currentCounter = 0;
-
-                    const wrapper = document.querySelector(".products__cards");
-                    wrapper.innerHTML = '';
-
-                    this.loadMoreBtn.style.display = 'block';
-
-                    let keyWord = element.textContent.toLowerCase().trim();
-
-                    let filteredData = response.filter((item) => {
-                        return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
-                        //return item.category.toLowerCase().trim().includes(keyWord);
-                    });
-
-                    this.render(filteredData);
-                    booksStorage();
-                });
-            });
-        }
-
-
-        render(response) {
-            this.dataLength = response.length;
-            this.data = response;
-
-            while (this.currentCounter < this.pageCounter) {
-
-                this.createCards(response);
-
-                this.currentCounter++;
-
-                if (this.currentCounter >= this.dataLength) {
-                    this.loadMoreBtn.style.display = 'none';
-                    break;
-                }
-            }
         }
 
         createCards(response) {
@@ -104,14 +67,33 @@ function cards() {
                        </svg>
                    </a>
                    <div class="product__btns">
-                       <button class="btn btn--green my-books-btn">+ My Books</button>
-                       <button class="btn" data-wishlist-btn>
+                       <button class="btn btn--green my-books-btn" data-add-to="My Books">
+                            + My Books
+                       </button>
+                       <button class="btn" data-add-to="Wish List">
                             + Wishlist
                        </button>
                    </div>
                 </div>
                `;
             document.querySelector('.products__cards').appendChild(card);
+        }
+
+        render(response) {
+            this.dataLength = response.length;
+            this.data = response;
+
+            while (this.currentCounter < this.pageCounter) {
+
+                this.createCards(response);
+
+                this.currentCounter++;
+
+                if (this.currentCounter >= this.dataLength) {
+                    this.loadMoreBtn.style.display = 'none';
+                    break;
+                }
+            }
         }
 
         loadMore() {
@@ -132,8 +114,50 @@ function cards() {
                     this.render(this.data);
                 }
 
-                booksStorage();
+                allStorages();
             });
+        }
+
+        filter(response) {
+            this.render(response);
+            this.loadMore();
+            allStorages();
+
+            let triggers = document.querySelectorAll(".products__filter ul li a");
+            triggers.forEach((element) => {
+                element.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    triggers.forEach((link) => {
+                        link.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
+
+                    this.pageCounter = 6;
+                    this.currentCounter = 0;
+
+                    const wrapper = document.querySelector(".products__cards");
+                    wrapper.innerHTML = '';
+
+                    this.loadMoreBtn.style.display = 'block';
+
+                    let keyWord = element.textContent.toLowerCase().trim();
+
+                    let filteredData = response.filter((item) => {
+                        return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
+                        //return item.category.toLowerCase().trim().includes(keyWord);
+                    });
+
+                    this.render(filteredData);
+                    allStorages();
+                });
+            });
+        }
+
+        init(response) {
+            try {
+                this.filter(response);
+            } catch(e){}
         }
     }
 
@@ -141,7 +165,7 @@ function cards() {
 
 
     getResource("http://localhost:3000/books")
-        .then(data => getBooks.filter(data))
+        .then(data => getBooks.init(data))
         .catch(err => console.error(err));
 
 }

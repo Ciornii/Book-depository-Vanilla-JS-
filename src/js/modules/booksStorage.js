@@ -1,10 +1,20 @@
-const booksStorage = () => {
-  const productsBtn = document.querySelectorAll('[data-wishlist-btn]');
-  const productsList = document.querySelector('.popup-list__wrapper');
-  const listIcon = document.querySelector('.navbar__wishlist');
-  const counter = document.querySelector('[data-wishlist-counter]');
+export default class BooksStorage {
+  constructor({
+    addBtn,
+    popupListWrapper,
+    popupTrigger,
+    counter,
+    storageName
+  } = {}) {
+    this.addBtn = document.querySelectorAll(addBtn); // '[data-wishlist-btn]'
+    this.addBtnSelector = addBtn;
+    this.popupListWrapper = document.querySelector(popupListWrapper); // '.popup-list__wrapper'
+    this.popupTrigger = document.querySelector(popupTrigger); // '.navbar__wishlist'
+    this.counter = document.querySelector(counter); // '[data-wishlist-counter]'
+    this.storageName = storageName;
+  }
 
-  const createListItem = (author, title, id) => {
+  createListItem(author, title, id) {
     return `
       <li class="popup-list__item" data-id="${id}">
         <div class="popup-list__title">${title}</div>
@@ -16,73 +26,84 @@ const booksStorage = () => {
         </button>
       </li>
     `;
-  };
+  }
 
-  productsBtn.forEach(el => {
-    el.addEventListener('click', e => {
-      let target = e.currentTarget;
-      let parent = target.closest('.product__card');
-      let id = parent.dataset.id;
-      let title = parent.querySelector('.product__title').textContent;
-      let author = parent.querySelector('.product__author').textContent;
+  itemsCounter() {
+    let length = this.popupListWrapper.children.length;
+    this.counter.innerHTML = length;
+  }
 
-      productsList.insertAdjacentHTML('afterbegin', createListItem(author, title, id));
-      itemsCounter();
-      updateStorage();
-      target.disabled = true;
-    });
-  });
-
-  productsList.addEventListener('click', e => {
-    e.stopPropagation();
-
-    if (e.target.closest('.popup-list__delete')) {
-      deleteItems(e.target.closest('.popup-list__item'));
-    }
-  });
-
-  const itemsCounter = () => {
-    let length = productsList.children.length;
-    counter.innerHTML = length;
-  };
-
-  const deleteItems = (itemParent) => {
+  deleteItems(itemParent) {
     let id = itemParent.dataset.id;
     if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-      document.querySelector(`.product__card[data-id="${id}"]`).querySelector('[data-wishlist-btn]').disabled = false;
+      document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = false;
     }
     itemParent.remove();
-    itemsCounter();
-    updateStorage();
-  };
+    this.itemsCounter();
+    this.updateStorage();
+  }
 
-  const initialState = () => {
-    let booksLocalStorage = localStorage.getItem('wishlist');
+  listenerAddItems() {
+    this.addBtn.forEach(el => {
+      el.addEventListener('click', e => {
+        let target = e.currentTarget;
+        let parent = target.closest('.product__card');
+        let id = parent.dataset.id;
+        let title = parent.querySelector('.product__title').textContent;
+        let author = parent.querySelector('.product__author').textContent;
+
+        this.popupListWrapper.insertAdjacentHTML('afterbegin', this.createListItem(author, title, id));
+        this.itemsCounter();
+        this.updateStorage();
+        target.disabled = true;
+      });
+    });
+  }
+
+  listenerDeleteItems() {
+    this.popupListWrapper.addEventListener('click', e => {
+      e.stopPropagation();
+
+      if (e.target.closest('.popup-list__delete')) {
+        this.deleteItems(e.target.closest('.popup-list__item'));
+      }
+    });
+  }
+
+  initialState() {
+    let booksLocalStorage = localStorage.getItem(this.storageName);
     if (booksLocalStorage !== null) {
-      productsList.innerHTML = booksLocalStorage;
-      itemsCounter();
+      this.popupListWrapper.innerHTML = booksLocalStorage;
+      this.itemsCounter();
 
       document.querySelectorAll('.popup-list__item').forEach(el => {
         let id = el.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document.querySelector(`.product__card[data-id="${id}"]`).querySelector('[data-wishlist-btn]').disabled = true;
+          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = true; // TODO
         }
-      })
+      });
     }
-  };
-  initialState();
+  }
 
-  const updateStorage = () => {
-    let html = productsList.innerHTML;
+  updateStorage() {
+    let html = this.popupListWrapper.innerHTML;
     html = html.trim();
 
     if (html.length) {
-      localStorage.setItem('wishlist', html);
+      localStorage.setItem(this.storageName, html);
     } else {
-      localStorage.removeItem('wishlist');
+      localStorage.removeItem(this.storageName);
+      this.popupListWrapper.innerText = 'Your list is empty'; // TODO
     }
-  };
+  }
 
-};
+  init() {
+    try {
+      this.listenerAddItems();
+      this.listenerDeleteItems();
+      this.initialState();
+      this.updateStorage();
+    } catch (e) {}
+  }
 
-export default booksStorage;
+}

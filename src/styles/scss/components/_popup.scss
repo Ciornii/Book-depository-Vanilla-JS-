@@ -142,3 +142,7 @@
   visibility: visible;
   animation: fadeIn 0.2s;
 }
+
+.popup-list[data-popup="My Books"] {
+  right: 48px;
+}
