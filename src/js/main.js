@@ -1,10 +1,26 @@
 import cards from './modules/cards';
+import Popup from './modules/popup';
 
 
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
     cards();
+
+    const myBooks = new Popup({
+        popup: '.popup-list[data-popup="My Books"]',
+        trigger: '.navbar__my-books',
+        activeClass: 'popup-list--active',
+        close: '.popup-list__close'
+    });
+    myBooks.init();
+    const wishList = new Popup({
+        popup: '.popup-list[data-popup="Wish List"]',
+        trigger: '.navbar__wishlist',
+        activeClass: 'popup-list--active',
+        close: '.popup-list__close'
+    });
+    wishList.init();
  
     //==============================================================================================
     //============================================================ Preloader
@@ -65,39 +81,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             upElem.classList.remove('fadeIn');
         }
     });
-
-
-    //==============================================================================================
-    //============================================================ Pop up   // TODO
-
-    const popup = document.querySelector('.popup-list[data-popup="Wish List"]');
-
-    document.addEventListener("click", (e) => {
-        if (e.target.closest('.popup-list__close[data-popup="Wish List"]')) {
-            popup.classList.remove("popup-list--active");
-        } else if (e.target.closest('.navbar__wishlist')) {
-            popup.classList.toggle("popup-list--active");
-        } else if (e.target == popup || popup.contains(e.target)) {
-            popup.classList.add("popup-list--active");
-        } else {
-            popup.classList.remove("popup-list--active");
-        }
-    });
-
-    const popup2 = document.querySelector('.popup-list[data-popup="My Books"]');
-
-    document.addEventListener("click", (e) => {
-        if (e.target.closest('.popup-list__close[data-popup="My Books"]')) {
-            popup2.classList.remove("popup-list--active");
-        } else if (e.target.closest('.navbar__my-books')) {
-            popup2.classList.toggle("popup-list--active");
-        } else if (e.target == popup2 || popup2.contains(e.target)) {
-            popup2.classList.add("popup-list--active");
-        } else {
-            popup2.classList.remove("popup-list--active");
-        }
-    });
-
 });
 
 

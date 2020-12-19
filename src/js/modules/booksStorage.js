@@ -82,7 +82,7 @@ export default class BooksStorage {
         let id = el.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
           document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = true;
-        }
+        }// TODO
       });
     }
   }
@@ -110,5 +110,4 @@ export default class BooksStorage {
       this.updateStorage();
     } catch (e) {}
   }
-
 }

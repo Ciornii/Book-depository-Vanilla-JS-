@@ -121,10 +121,6 @@ function cards() {
         }
 
         filter(response) {
-            this.render(response);
-            this.loadMore();
-            allStorages();
-
             let triggers = document.querySelectorAll(".products__filter ul li a");
             triggers.forEach((element) => {
                 element.addEventListener("click", (e) => {
@@ -158,6 +154,9 @@ function cards() {
 
         init(response) {
             try {
+                this.render(response);
+                this.loadMore();
+                allStorages();
                 this.filter(response);
             } catch(e){}
         }
