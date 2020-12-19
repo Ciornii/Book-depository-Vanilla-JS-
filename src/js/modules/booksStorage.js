@@ -1,16 +1,18 @@
 export default class BooksStorage {
   constructor({
     addBtn,
+    popupParent,
     popupListWrapper,
     popupTrigger,
     counter,
     storageName
   } = {}) {
-    this.addBtn = document.querySelectorAll(addBtn); // '[data-wishlist-btn]'
+    this.addBtn = document.querySelectorAll(addBtn);
     this.addBtnSelector = addBtn;
-    this.popupListWrapper = document.querySelector(popupListWrapper); // '.popup-list__wrapper'
-    this.popupTrigger = document.querySelector(popupTrigger); // '.navbar__wishlist'
-    this.counter = document.querySelector(counter); // '[data-wishlist-counter]'
+    this.popupParent = document.querySelector(popupParent);
+    this.popupListWrapper = document.querySelector(popupListWrapper);
+    this.popupTrigger = document.querySelector(popupTrigger);
+    this.counter = document.querySelector(counter);
     this.storageName = storageName;
   }
 
@@ -79,21 +81,24 @@ export default class BooksStorage {
       document.querySelectorAll('.popup-list__item').forEach(el => {
         let id = el.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = true; // TODO
+          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = true;
         }
       });
     }
   }
 
   updateStorage() {
-    let html = this.popupListWrapper.innerHTML;
-    html = html.trim();
+    let html = this.popupListWrapper.innerHTML.trim();
+    let moreInfo = this.popupParent.querySelector('.popup-list__more');
 
     if (html.length) {
       localStorage.setItem(this.storageName, html);
+      moreInfo.textContent = ('View full list');
+      moreInfo.disabled = false;
     } else {
       localStorage.removeItem(this.storageName);
-      this.popupListWrapper.innerText = 'Your list is empty'; // TODO
+      moreInfo.textContent = ('List is empty');
+      moreInfo.disabled = true;
     }
   }
 

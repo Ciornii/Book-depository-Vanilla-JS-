@@ -12,6 +12,11 @@
   z-index: 100;
   visibility: hidden;
 
+  &--active {
+    visibility: visible;
+    animation: fadeIn 0.2s;
+  }
+
   .popup-list__main-title {
     @include font-size(20px);
     font-weight: bold;
@@ -74,10 +79,10 @@
     }
   }
 
-  .popup-list__link {
+  button.popup-list__more{
     position: relative;
     @include center_block;
-    width: 136px;
+    width: auto;
     @include font-size(14px);
     text-align: center;
     color: $red;
@@ -86,8 +91,14 @@
     white-space: nowrap;
     transition: text-decoration 0.2s ease;
     margin-top: 2rem;
+    background-color: transparent;
 
     &:hover {
+      text-decoration: none;
+    }
+
+    &:disabled {
+      color: $black;
       text-decoration: none;
     }
   }
@@ -138,10 +149,7 @@
   }
 }
 
-.popup-list.show {
-  visibility: visible;
-  animation: fadeIn 0.2s;
-}
+
 
 .popup-list[data-popup="My Books"] {
   right: 48px;

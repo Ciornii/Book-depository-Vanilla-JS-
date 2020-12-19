@@ -74,13 +74,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     document.addEventListener("click", (e) => {
         if (e.target.closest('.popup-list__close[data-popup="Wish List"]')) {
-            popup.classList.remove("show");
+            popup.classList.remove("popup-list--active");
         } else if (e.target.closest('.navbar__wishlist')) {
-            popup.classList.toggle("show");
+            popup.classList.toggle("popup-list--active");
         } else if (e.target == popup || popup.contains(e.target)) {
-            popup.classList.add("show");
+            popup.classList.add("popup-list--active");
         } else {
-            popup.classList.remove("show");
+            popup.classList.remove("popup-list--active");
         }
     });
 
@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     document.addEventListener("click", (e) => {
         if (e.target.closest('.popup-list__close[data-popup="My Books"]')) {
-            popup2.classList.remove("show");
+            popup2.classList.remove("popup-list--active");
         } else if (e.target.closest('.navbar__my-books')) {
-            popup2.classList.toggle("show");
+            popup2.classList.toggle("popup-list--active");
         } else if (e.target == popup2 || popup2.contains(e.target)) {
-            popup2.classList.add("show");
+            popup2.classList.add("popup-list--active");
         } else {
-            popup2.classList.remove("show");
+            popup2.classList.remove("popup-list--active");
         }
     });
 

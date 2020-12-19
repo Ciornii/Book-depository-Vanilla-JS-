@@ -219,48 +219,6 @@
           }
         }
       }
-
-      .btn.load-more {
-        @include center_block;
-        width: 12rem;
-        padding-left: 2rem;
-        //background-color: $dark-grey;
-        //color: white;
-
-        svg {
-          @include align-center(vertical);
-          width: 18px;
-          height: 18px;
-          fill: red !important;
-          left: 2rem;
-        }
-      }
-      .btn.load-more.active {
-        svg {
-          top: 11px;
-          -webkit-animation: spin 1s linear infinite; /* Safari */
-          animation: spin 1s linear infinite;
-        }
-      }
-
-      /* Safari */
-      @-webkit-keyframes spin {
-        0% {
-          -webkit-transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-        }
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
     }
   }
 }

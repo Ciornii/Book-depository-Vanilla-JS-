@@ -2,8 +2,7 @@
   position: relative;
   display: block;
   background-color: $main-color;
-  width: 14rem;
-  height: 2.5rem;
+  line-height: 3;
   margin-top: 3rem;
   transition: all 0.2s ease;
   border-radius: 50px;
@@ -37,6 +36,7 @@
   }
 }
 
+// ----------------------------------------------------
 .btn--green {
   color: white;
   background-color: $green;
@@ -46,7 +46,7 @@
   }
 }
 
-
+// ----------------------------------------------------
 .btn.active {
   background-color: $grey;
 
@@ -57,9 +57,52 @@
 
 button:disabled {
   background-color: $grey;
+  color: $black;
+  cursor: initial;
 
   &:hover {
     background-color: $grey;
+  }
+}
+
+// ----------------------------------------------------
+.btn.load-more {
+  @include center_block;
+  padding-left: 3.5rem;
+  padding-right: 1.5rem;
+  
+  svg {
+    @include align-center(vertical);
+    width: 18px;
+    height: 18px;
+    fill: red !important;
+    left: 1.5rem;
+  }
+}
+.btn.load-more.active {
+  svg {
+    top: 11px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

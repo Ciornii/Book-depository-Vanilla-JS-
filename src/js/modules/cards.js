@@ -9,6 +9,7 @@ function cards() {
     const allStorages = () => {
         const wishlist = new BooksStorage({
             addBtn: '[data-add-to="Wish List"]',
+            popupParent: '.popup-list[data-popup="Wish List"]',
             popupListWrapper: '.popup-list__wrapper[data-popup="Wish List"]',
             popupTrigger: '.navbar__wishlist',
             counter: '[data-counter="Wish List"]',
@@ -17,6 +18,7 @@ function cards() {
         wishlist.init();
         const mybooks = new BooksStorage({
             addBtn: '[data-add-to="My Books"]',
+            popupParent: '.popup-list[data-popup="My Books"]',
             popupListWrapper: '.popup-list__wrapper[data-popup="My Books"]',
             popupTrigger: '.navbar__my-books',
             counter: '[data-counter="My Books"]',
