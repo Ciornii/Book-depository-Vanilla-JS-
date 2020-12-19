@@ -3,7 +3,6 @@ export default class BooksStorage {
     addBtn,
     popupParent,
     popupListWrapper,
-    popupTrigger,
     counter,
     storageName
   } = {}) {
@@ -11,7 +10,6 @@ export default class BooksStorage {
     this.addBtnSelector = addBtn;
     this.popupParent = document.querySelector(popupParent);
     this.popupListWrapper = document.querySelector(popupListWrapper);
-    this.popupTrigger = document.querySelector(popupTrigger);
     this.counter = document.querySelector(counter);
     this.storageName = storageName;
   }
@@ -78,11 +76,12 @@ export default class BooksStorage {
       this.popupListWrapper.innerHTML = booksLocalStorage;
       this.itemsCounter();
 
-      document.querySelectorAll('.popup-list__item').forEach(el => {
+      this.popupListWrapper.querySelectorAll('.popup-list__item').forEach(el => {
         let id = el.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = true;
-        }// TODO
+          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = 'true';
+          console.log(document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector));
+        }
       });
     }
   }
