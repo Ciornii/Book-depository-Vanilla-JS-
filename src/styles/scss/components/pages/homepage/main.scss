@@ -167,44 +167,66 @@
               }
             }
 
-            a.product__link {
-              position: relative;
-              @include center_block;
-              width: 100px;
-              padding-right: 23px;
-              @include font-size(13px);
-              color: $dark-grey;
-              text-decoration: underline;
-              overflow: hidden;
-              white-space: nowrap;
-              transition: all 0.2s ease;
+            .product__actions {
+              display: flex;
+              justify-content: space-between;
 
-              &:hover {
-                text-decoration: none;
-                color: $black;
+              a.product__link {
+                position: relative;
+
+                width: 100px;
+                padding-left: 25px;
+                @include font-size(13px);
+                color: $dark-grey;
+                text-decoration: underline;
+                overflow: hidden;
+                white-space: nowrap;
+                transition: all 0.2s ease;
 
                 svg {
-                  fill: $black;
+                  width: 18px;
+                  fill: $light-grey;
+                  @include align-center(vertical);
+                  left: 0px;
+                  transition: all 0.2s ease;
+                }
+
+                &:hover {
+                  text-decoration: none;
+                  color: $black;
+
+                  svg {
+                    fill: $dark-grey;
+                  }
                 }
               }
 
-              svg {
-                width: 18px;
-                fill: $grey;
-                @include align-center(vertical);
-                right: 0px;
-                transition: all 0.2s ease;
-              }
-            }
+              .product__btns {
+                display: flex;
 
-            .product__btns {
-              display: flex;
-              flex-wrap: nowrap;
-              justify-content: space-between;
+                button {
+                  position: relative;
+                  margin-left: 1rem;
+                  background: none;
+                  width: 22px;
+                
+                  svg {
+                    height: 24px;
+                    width: 20px;
+                    fill: $light-grey;
+                    @include align-center(both);
+                    transition: width 0.4s ease;
+                    transition: fill 0.2s ease;
+                    overflow: hidden;
+                  }
 
-              button {
-                width: 105px;
-                margin-top: 1.2rem;
+                  &:hover,
+                  &.active {
+                    svg {
+                      fill: $dark-grey;
+                    }
+                  }
+                }
               }
             }
           }
@@ -215,14 +237,13 @@
           box-shadow: 2px 3px 12px rgba(184, 184, 184, 0.2);
 
           .product__bottom {
-            margin-top: -6.9rem;
+            margin-top: -4rem;
           }
         }
       }
     }
   }
 }
-
 
 .loader {
   width: 50px;

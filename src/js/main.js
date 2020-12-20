@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const myBooks = new Popup({
         popup: '.popup-list[data-popup="My Books"]',
-        trigger: '.navbar__my-books',
+        trigger: '.navbar__btn--my-books',
         activeClass: 'popup-list--active',
         close: '.popup-list__close'
     });
     myBooks.init();
     const wishList = new Popup({
         popup: '.popup-list[data-popup="Wish List"]',
-        trigger: '.navbar__wishlist',
+        trigger: '.navbar__btn--wishlist',
         activeClass: 'popup-list--active',
         close: '.popup-list__close'
     });

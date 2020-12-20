@@ -12,7 +12,8 @@ function cards() {
             popupParent: '.popup-list[data-popup="Wish List"]',
             popupListWrapper: '.popup-list__wrapper[data-popup="Wish List"]',
             counter: '[data-counter="Wish List"]',
-            storageName: 'Wish List'
+            storageName: 'Wish List',
+            changeListBtn: '[data-add-to="My Books"]'
         });
         wishlist.init();
         const mybooks = new BooksStorage({
@@ -20,7 +21,8 @@ function cards() {
             popupParent: '.popup-list[data-popup="My Books"]',
             popupListWrapper: '.popup-list__wrapper[data-popup="My Books"]',
             counter: '[data-counter="My Books"]',
-            storageName: 'My Books'
+            storageName: 'My Books',
+            changeListBtn: '[data-add-to="Wish List"]'
         });
         mybooks.init();
     };
@@ -60,19 +62,25 @@ function cards() {
                             by ${response[i].author}
                         </div>
                    </div>
-                   <a href="#" class="product__link">
-                       Quick View 
-                       <svg>
-                           <use xlink:href="assets/icons/sprite.svg#eye"></use>
-                       </svg>
-                   </a>
-                   <div class="product__btns">
-                       <button class="btn btn--green my-books-btn" data-add-to="My Books">
-                            + My Books
-                       </button>
-                       <button class="btn" data-add-to="Wish List">
-                            + Wishlist
-                       </button>
+                   <div class="product__actions">
+                        <a href="#" class="product__link">
+                            Quick View 
+                            <svg>
+                                <use xlink:href="assets/icons/sprite.svg#eye"></use>
+                            </svg>
+                        </a>
+                        <div class="product__btns">
+                            <button data-add-to="My Books" title='My Books'>
+                                    <svg>
+                                        <use xlink:href="assets/icons/sprite.svg#book-fill"></use>
+                                    </svg>
+                            </button>
+                            <button data-add-to="Wish List" title='Wish List'>
+                                    <svg>
+                                        <use xlink:href="assets/icons/sprite.svg#heart-fill"></use>
+                                    </svg>
+                            </button>
+                        </div>
                    </div>
                 </div>
                `;
@@ -156,7 +164,7 @@ function cards() {
                 this.loadMore();
                 allStorages();
                 this.filter(response);
-            } catch(e){}
+            } catch (e) {}
         }
     }
 

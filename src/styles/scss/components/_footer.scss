@@ -34,9 +34,9 @@
 
     .copyright__right {
       float: right;
-      display: block;
       position: relative;
       top: 1px;
+      display: flex;
 
       @media only screen and (max-width: 469px) {
         text-align: center;
@@ -75,12 +75,14 @@
         position: relative;
         margin: 0 .7rem;
         animation: beat 1.5s infinite;
+        height: 20px;
+        width: 20px;
+        overflow: hidden;
 
         svg {
           fill: $main-color;
           @include height(17px);
           @include align-center(both);
-          margin-top: -4px;
         }
       }
 

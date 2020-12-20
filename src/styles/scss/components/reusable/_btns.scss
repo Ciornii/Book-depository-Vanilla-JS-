@@ -129,7 +129,7 @@ button:disabled {
 
   svg {
     width: 16px;
-    fill: white;
+    fill: $black;
     display: block;
     margin: 0 auto;
     @include align-center(both);

@@ -10,7 +10,7 @@
     background-color: $dark-grey;
     box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
     transition: height 0.4s ease;
-    
+
     .navbar__inner {
       position: relative;
       @include height(80px);
@@ -76,32 +76,28 @@
         }
       }
 
-      .navbar__icons {
+      .navbar__btns {
         display: flex;
         position: relative;
 
-        .navbar__user,
-        .navbar__my-books,
-        .navbar__wishlist {
+        .navbar__btn {
+          background-color: transparent;
           position: relative;
           margin-right: 28px;
+          display: block;
+          position: relative;
+          height: 26px;
+          width: 26px;
+          cursor: pointer;
+          transition: all 0.4s ease;
 
-          .navbar__icon {
-            display: block;
-            position: relative;
+          svg {
             height: 26px;
-            width: 26px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-
-            svg {
-              width: 22px;
-              fill: $border-color;
-              @include align-center(both);
-              transition: width 0.4s ease;
-              transition: fill 0.2s ease;
-            }
+            width: 22px;
+            fill: $border-color;
+            @include align-center(both);
+            transition: width 0.4s ease;
+            transition: fill 0.2s ease;
           }
 
           .navbar__counter {
@@ -116,39 +112,33 @@
             text-align: center;
             color: white;
             padding-left: 1px;
+            padding-top: 1px;
             cursor: pointer;
             transition: all 0.2s ease;
           }
         }
 
-        .navbar__user,
-        .navbar__my-books,
-        .navbar__wishlist {
-       
-          &:hover {
-            svg {
-              fill: white;
-            }
+        .navbar__btn:hover {
+          svg {
+            fill: white;
+          }
 
-            .navbar__counter {
-              background-color: $red;
-            }
+          .navbar__counter {
+            background-color: $red;
+          }
 
-            .navbar__counter {
-              background-color: $red;
-            }
+          .navbar__counter {
+            background-color: $red;
           }
         }
 
-        .navbar__user {
-          .navbar__icon {
-            svg {
-              width: 24px;
-            }
+        .navbar__btn--user {
+          svg {
+            width: 24px;
           }
         }
 
-        .navbar__wishlist {
+        .navbar__btn--wishlist {
           margin-right: 0px;
         }
       }

@@ -4,7 +4,8 @@ export default class BooksStorage {
     popupParent,
     popupListWrapper,
     counter,
-    storageName
+    storageName,
+    changeListBtn
   } = {}) {
     this.addBtn = document.querySelectorAll(addBtn);
     this.addBtnSelector = addBtn;
@@ -12,6 +13,7 @@ export default class BooksStorage {
     this.popupListWrapper = document.querySelector(popupListWrapper);
     this.counter = document.querySelector(counter);
     this.storageName = storageName;
+    this.changeListBtn = document.querySelectorAll(changeListBtn);
   }
 
   createListItem(author, title, id) {
@@ -37,6 +39,8 @@ export default class BooksStorage {
     let id = itemParent.dataset.id;
     if (document.querySelector(`.product__card[data-id="${id}"]`)) {
       document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = false;
+      document.querySelector(`.product__card[data-id="${id}"]`).
+      querySelector(this.addBtnSelector).classList.remove('active');
     }
     itemParent.remove();
     this.itemsCounter();
@@ -80,7 +84,8 @@ export default class BooksStorage {
         let id = el.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
           document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = 'true';
-          console.log(document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector));
+          document.querySelector(`.product__card[data-id="${id}"]`)
+            .querySelector(this.addBtnSelector).classList.add('active');
         }
       });
     }
@@ -101,12 +106,34 @@ export default class BooksStorage {
     }
   }
 
+  moveToAnotherList() {
+    this.changeListBtn.forEach(el => {
+      el.addEventListener('click', e => {
+        let target = e.currentTarget;
+        let parent = target.closest('.product__card');
+        let id = parent.dataset.id;
+        if (document.querySelector(`.product__card[data-id="${id}"]`)) {
+          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = false;
+          document.querySelector(`.product__card[data-id="${id}"]`).
+          querySelector(this.addBtnSelector).classList.remove('active');
+        }
+        if (document.querySelector(`.popup-list__item[data-id="${id}"]`)) {
+          document.querySelector(`.popup-list__item[data-id="${id}"]`).remove();
+        }
+        target.classList.add('active');
+        this.itemsCounter();
+        this.updateStorage();
+      });
+    });
+  }
+
   init() {
     try {
       this.listenerAddItems();
       this.listenerDeleteItems();
       this.initialState();
       this.updateStorage();
+      this.moveToAnotherList();
     } catch (e) {}
   }
 }
