@@ -34,6 +34,7 @@ function cards() {
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
             this.wrapper = document.querySelector(".products__cards");
+            this.sorting = document.querySelector('.products__sorting');
         }
 
         cardTemplate(response, i) {
@@ -153,6 +154,7 @@ function cards() {
                     });
 
                     this.render(filteredData);
+                    this.sorting.style.display = 'inline';
                     allStorages();
                 });
             });
@@ -163,20 +165,44 @@ function cards() {
             let searchResult = [];
 
             searchBar.addEventListener('keyup', (e) => {
+                if (e.keyCode == 13) {
+                    this.wrapper.innerHTML = '';
+                    this.loadMoreBtn.style.display = 'none';
+                    document.querySelectorAll('.products__filter a').forEach((el) => {
+                        el.classList.remove('active');
+                    });
+                    this.sorting.style.display = 'none';
 
-                this.wrapper.innerHTML = '';
-                this.loadMoreBtn.style.display = 'none';
+                    let searchResultInfo = document.createElement('div');
+                    searchResultInfo.classList.add('search__response');
+                    this.wrapper.append(searchResultInfo);
 
-                let keyWord = e.target.value.toLowerCase().trim();
+                    let keyWord = e.target.value.toLowerCase().trim();
 
-                searchResult = response.filter(item => {
-                    return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
-                });
+                    if (keyWord) {
+                        searchResult = response.filter(item => {
+                            return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
+                        });
 
-                for (let i = 0; i < searchResult.length; i++) {
-                    this.cardTemplate(searchResult, i);
+                        if (searchResult.length > 0) {
+                            searchResultInfo.innerHTML = `Search results for: '${e.target.value}'`;
+
+                            for (let i = 0; i < searchResult.length; i++) {
+                                this.cardTemplate(searchResult, i);
+                            }
+                        } else {
+                            searchResultInfo.innerHTML = 'Nothing found. </br> Please try again with some different keywords.';
+                        }
+                    } else {
+                        searchResultInfo.innerHTML = 'Nothing found. </br> Please try again with some different keywords.';
+                    }
+
+                    allStorages();
                 }
-                allStorages();
+            });
+
+            document.querySelector('.navbar__icon').addEventListener('click', () => {
+                searchBar.focus();
             });
         }
 
