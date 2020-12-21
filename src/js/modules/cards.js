@@ -33,12 +33,12 @@ function cards() {
             this.dataLength = 0;
             this.data = [];
             this.loadMoreBtn = document.querySelector("#loadMore");
+            this.wrapper = document.querySelector(".products__cards");
         }
 
-        createCards(response) {
+        cardTemplate(response, i) {
             let threePoints = "...";
             let title = "";
-            let i = this.currentCounter;
 
             if (response[i].title.length > 45) {
                 title = response[i].title.slice(0, 44).concat(threePoints);
@@ -46,7 +46,7 @@ function cards() {
                 title = response[i].title;
             }
 
-            let card = document.createElement('div');
+            let card = document.createElement('li');
             card.classList.add('product__card');
             card.setAttribute("data-id", `${response[i].id}`);
             card.innerHTML = `
@@ -93,7 +93,8 @@ function cards() {
 
             while (this.currentCounter < this.pageCounter) {
 
-                this.createCards(response);
+                let i = this.currentCounter;
+                this.cardTemplate(response, i);
 
                 this.currentCounter++;
 
@@ -140,8 +141,7 @@ function cards() {
                     this.pageCounter = 6;
                     this.currentCounter = 0;
 
-                    const wrapper = document.querySelector(".products__cards");
-                    wrapper.innerHTML = '';
+                    this.wrapper.innerHTML = '';
 
                     this.loadMoreBtn.style.display = 'block';
 
@@ -149,12 +149,34 @@ function cards() {
 
                     let filteredData = response.filter((item) => {
                         return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
-                        //return item.category.toLowerCase().trim().includes(keyWord);
+                        //return item.category.toLowerCase().trim().includes(keyWord) || item.author.toLowerCase().trim().includes(keyWord);
                     });
 
                     this.render(filteredData);
                     allStorages();
                 });
+            });
+        }
+
+        search(response) {
+            const searchBar = document.getElementById('searchBar');
+            let searchResult = [];
+
+            searchBar.addEventListener('keyup', (e) => {
+
+                this.wrapper.innerHTML = '';
+                this.loadMoreBtn.style.display = 'none';
+
+                let keyWord = e.target.value.toLowerCase().trim();
+
+                searchResult = response.filter(item => {
+                    return Object.keys(item).some((key) => item[key].toString().toLowerCase().trim().includes(keyWord));
+                });
+
+                for (let i = 0; i < searchResult.length; i++) {
+                    this.cardTemplate(searchResult, i);
+                }
+                allStorages();
             });
         }
 
@@ -164,6 +186,7 @@ function cards() {
                 this.loadMore();
                 allStorages();
                 this.filter(response);
+                this.search(response);
             } catch (e) {}
         }
     }
