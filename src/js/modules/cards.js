@@ -3,6 +3,7 @@ import {
 } from '../services/services';
 
 import BooksStorage from './booksStorage';
+import modals from './modals';
 
 function cards() {
 
@@ -133,6 +134,7 @@ function cards() {
             triggers.forEach((element) => {
                 element.addEventListener("click", (e) => {
                     e.preventDefault();
+                    document.querySelector('.scroll-up').click();
 
                     triggers.forEach((link) => {
                         link.classList.remove('active');
@@ -172,6 +174,7 @@ function cards() {
                         el.classList.remove('active');
                     });
                     this.sorting.style.display = 'none';
+                    document.querySelector('.scroll-up').click();
 
                     let searchResultInfo = document.createElement('div');
                     searchResultInfo.classList.add('search__response');
@@ -213,6 +216,7 @@ function cards() {
                 allStorages();
                 this.filter(response);
                 this.search(response);
+                modals();
             } catch (e) {}
         }
     }

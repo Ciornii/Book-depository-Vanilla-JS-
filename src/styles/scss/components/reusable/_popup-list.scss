@@ -9,6 +9,7 @@
   right: -3px;
   top: 41px;
   box-shadow: 2px 3px 12px rgba(184, 184, 184, 0.2);
+  @include customScroll();
   z-index: 100;
   visibility: hidden;
 

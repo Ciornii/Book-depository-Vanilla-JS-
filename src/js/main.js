@@ -1,5 +1,6 @@
 import cards from './modules/cards';
 import Popup from './modules/popup';
+import scrolling from './modules/scrolling';
 
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         close: '.popup-list__close'
     });
     wishList.init();
+
+    scrolling('.scroll-up');
  
     //==============================================================================================
     //============================================================ Preloader
@@ -66,21 +69,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     });
 
-
-    //==============================================================================================
-    //============================================================ Smooth scroll
-
-    const upElem = document.querySelector('.pageUp');
-
-    window.addEventListener('scroll', () => {
-        if (document.documentElement.scrollTop > 500) {
-            upElem.classList.add('animated', 'fadeIn');
-            upElem.classList.remove('fadeOut');
-        } else {
-            upElem.classList.add('fadeOut');
-            upElem.classList.remove('fadeIn');
-        }
-    });
 });
 
 
