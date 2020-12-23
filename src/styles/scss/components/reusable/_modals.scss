@@ -45,10 +45,10 @@
         }
 
         &-form {
-            background-color: $main-color;
+            background-color: white;
             background-size: cover;
             padding: 35px 88px 50px 88px;
-            color: #fff;
+            color: $black;
 
             @media only screen and (max-width: 577px) {
                 padding: 35px 40px 50px 40px;

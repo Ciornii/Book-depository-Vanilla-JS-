@@ -209,6 +209,44 @@ function cards() {
             });
         }
 
+
+        bookModalTemplate(author, title, id) {
+            return `
+              <li class="popup-list__item" data-id="${id}">
+                <div class="popup-list__title">${title}</div>
+                <div class="popup-list__author">${author}</div>
+              </li>
+            `;
+        }
+
+        quickView(response) {
+
+            document.querySelectorAll('.product__link').forEach(el => {
+                el.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    modals();
+
+                    let target = e.currentTarget;
+                    let parent = target.closest('.product__card');
+                    let bookId = parent.dataset.id;
+
+                    document.querySelector('.popup-form').innerHTML = '';
+
+                    let bookInfo = response.filter((item) => {
+
+                        return item.id == bookId;
+                    });
+
+                    console.log(bookInfo[0].title);
+
+                    document.querySelector('.popup-form').insertAdjacentHTML('afterbegin',
+                        this.bookModalTemplate(bookInfo[0].author, bookInfo[0].title, bookInfo[0].id));
+
+                });
+            });
+        }
+
         init(response) {
             try {
                 this.render(response);
@@ -216,7 +254,7 @@ function cards() {
                 allStorages();
                 this.filter(response);
                 this.search(response);
-                modals();
+                this.quickView(response);
             } catch (e) {}
         }
     }

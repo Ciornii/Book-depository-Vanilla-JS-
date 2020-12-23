@@ -48,7 +48,7 @@ const modals = () => {
          });
      }
 
-     bindModal('.product__img', '.get-nr1', '.get-nr1 .popup-close');
+     bindModal('.product__link', '.get-nr1', '.get-nr1 .popup-close');
  };
 
  export default modals;
