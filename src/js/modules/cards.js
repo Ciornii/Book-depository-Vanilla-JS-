@@ -107,7 +107,7 @@ function cards() {
             }
         }
 
-        loadMore() {
+        loadMore(response) {
             this.loadMoreBtn.addEventListener("click", (e) => {
                 e.preventDefault();
 
@@ -126,6 +126,7 @@ function cards() {
                 }
 
                 allStorages();
+                this.quickView(response);
             });
         }
 
@@ -158,6 +159,7 @@ function cards() {
                     this.render(filteredData);
                     this.sorting.style.display = 'inline';
                     allStorages();
+                    this.quickView(response);
                 });
             });
         }
@@ -240,21 +242,21 @@ function cards() {
 
                     console.log(bookInfo[0].title);
 
-                    document.querySelector('.popup-form').insertAdjacentHTML('afterbegin',
-                        this.bookModalTemplate(bookInfo[0].author, bookInfo[0].title, bookInfo[0].id));
+                    //document.querySelector('.popup-form').insertAdjacentHTML('afterbegin',
+                     //   this.bookModalTemplate(bookInfo[0].author, bookInfo[0].title, bookInfo[0].id));
 
                 });
             });
         }
 
-        init(response) {
+        init(data) {
             try {
-                this.render(response);
-                this.loadMore();
+                this.render(data);
+                this.loadMore(data);
                 allStorages();
-                this.filter(response);
-                this.search(response);
-                this.quickView(response);
+                this.filter(data);
+                this.search(data);
+                this.quickView(data);
             } catch (e) {}
         }
     }
