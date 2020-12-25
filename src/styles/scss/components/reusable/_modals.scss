@@ -40,12 +40,13 @@
       padding: 20px;
       background-color: white;
 
-      .modal__img {
+      .modal__img img{
+        max-width: 300px;
       }
       .modal__content {
         padding: 20px;
         margin-left: 20px;
-        
+        overflow-y: scroll;
         
         .modal__title {
             h2{
@@ -56,10 +57,23 @@
         .modal__author {
             margin-top: 15px;
         }
-        .modal__summary {
-            overflow-y: scroll;
+        .modal__description {
+      
             height: 352px;
             margin-top: 30px;
+            text-align: justify;
+
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 100%;
+            }
+            
+
+            p {
+              //text-align: justify;
+              text-indent: 30px;
+            }
             
         }
       }

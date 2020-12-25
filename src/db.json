@@ -1,158 +1,179 @@
 {
-  "books": [
-    {
+  "books": [{
       "id": 1,
       "category": "personal development",
       "title": "The monk who sold his ferrari",
       "author": "Robin Sharma",
-      "photo": "assets/img/books/61Iz2yy2CKL.jpg"
+      "photo": "assets/img/books/61Iz2yy2CKL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 2,
       "category": "personal development",
       "title": "How to stop worrying and start living",
       "author": "Dale Carnegie",
-      "photo": "assets/img/books/51elspxxvZL.jpg"
+      "photo": "assets/img/books/51elspxxvZL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 3,
       "category": "personal development",
       "title": "Change your thinking change your life",
       "author": "Brian Tracy",
-      "photo": "assets/img/books/D_NQ_NP_746944-MLM29430267048_022019-W.jpg"
+      "photo": "assets/img/books/D_NQ_NP_746944-MLM29430267048_022019-W.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 4,
       "category": "business",
       "title": "Blue Ocean Strategy",
       "author": "W. Chan Kim and Renée Mauborgne",
-      "photo": "assets/img/books/51vHDEifkJL.jpg"
+      "photo": "assets/img/books/51vHDEifkJL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 5,
       "category": "Financial education",
       "title": "Rich Dad Poor Dad",
       "author": "Robert Kiyosaki and Sharon Lechter",
-      "photo": "assets/img/books/81bsw6fnUiL.jpg"
+      "photo": "assets/img/books/81bsw6fnUiL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 6,
       "category": "Financial education",
       "title": "The Richest Man in Babylon",
       "author": "George S. Clason",
-      "photo": "assets/img/books/91cgVuWzjL.jpg"
+      "photo": "assets/img/books/91cgVuWzjL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 7,
       "category": "personal development",
       "title": "The Power of Now: A Guide to Spiritual Enlightenment",
       "author": "Eckhart Tolle",
-      "photo": "assets/img/books/TPON_Cover_LG.jpg"
+      "photo": "assets/img/books/TPON_Cover_LG.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 8,
       "category": "personal development, financial education",
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
-      "photo": "assets/img/books/51Uw5tYiqsL.jpg"
+      "photo": "assets/img/books/51Uw5tYiqsL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 9,
       "category": "personal development",
       "title": "The Miracle Morning",
       "author": "Hal Elrod",
-      "photo": "assets/img/books/MV5BMzRlZjE2OGMtODQ1NS0.jpg"
+      "photo": "assets/img/books/MV5BMzRlZjE2OGMtODQ1NS0.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 10,
       "category": "Financial education",
       "title": "The Road to Financial Freedom: Earn Your First Million in Seven Years",
       "author": "Bodo Schaefer",
-      "photo": "assets/img/books/51lQxieli7L.jpg"
+      "photo": "assets/img/books/51lQxieli7L.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 11,
       "category": "personal development",
       "title": "Mind Power into the 21st Century",
       "author": "John Kehoe",
-      "photo": "assets/img/books/41s2frfaifL.jpg"
+      "photo": "assets/img/books/41s2frfaifL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 12,
       "category": "personal development",
       "title": "How to Win Friends & Influence People",
       "author": "Dale Carnegie",
-      "photo": "assets/img/books/how-to-win-friends-and-influence-people-9780671027032_hr.jpg"
+      "photo": "assets/img/books/how-to-win-friends-and-influence-people-9780671027032_hr.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 13,
       "category": "personal development, Time management",
       "title": "Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time",
       "author": "Brian Tracy",
-      "photo": "assets/img/books/81jHcNJLB.jpg"
+      "photo": "assets/img/books/81jHcNJLB.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 14,
       "category": "personal development, Time management",
       "title": "The 7 Habits of Highly Effective People",
       "author": "Stephen Covey",
-      "photo": "assets/img/books/55842504-stiven-kovi-the-7-habits-of-highly-effective-people.jpg"
+      "photo": "assets/img/books/55842504-stiven-kovi-the-7-habits-of-highly-effective-people.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 15,
       "category": "personal development",
       "title": "The Power of Habit: Why We Do What We Do in Life and Business",
       "author": "Charles Duhigg",
-      "photo": "assets/img/books/81oc6I4sn.jpg"
+      "photo": "assets/img/books/81oc6I4sn.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 16,
       "category": "Biographies",
       "title": "Steve Jobs: The Man Who Thought Different",
       "author": "Karen Blumenthal",
-      "photo": "assets/img/books/81IX96nZmuL.jpg"
+      "photo": "assets/img/books/81IX96nZmuL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 17,
       "category": "personal development",
       "title": "The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It",
       "author": " Kelly McGonigal",
-      "photo": "assets/img/books/7146LMnjKaL.jpg"
+      "photo": "assets/img/books/7146LMnjKaL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 18,
       "category": "personal development",
       "title": "Quiet: The Power of Introverts in a World That Can't Stop Talking",
       "author": "Susan Cain",
-      "photo": "assets/img/books/8520610.jpg"
+      "photo": "assets/img/books/8520610.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 19,
       "category": "personal development",
       "title": "Awaken the Giant Within",
       "author": "Anthony Robbins",
-      "photo": "assets/img/books/81KkKgd18LL.jpg"
+      "photo": "assets/img/books/81KkKgd18LL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 20,
       "category": "personal development",
       "title": "The Quick and Easy Way to Effective Speaking",
       "author": "Dale Carnegie",
-      "photo": "assets/img/books/41l4zT5dzPL.jpg"
+      "photo": "assets/img/books/41l4zT5dzPL.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 21,
       "category": "Literature",
       "title": "Tema pentru acasă",
       "author": "Nicolae Dabija",
-      "photo": "assets/img/books/1000485.jpg"
+      "photo": "assets/img/books/1000485.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     },
     {
       "id": 22,
       "category": "personal development",
       "title": "The Subtle Art of Not Giving a Fuck",
       "author": "Mark Manson",
-      "photo": "assets/img/books/71QKQ9mwV7L.jpg"
+      "photo": "assets/img/books/71QKQ9mwV7L.jpg",
+      "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Leo urna molestie at elementum eu. Eu facilisis sed odio morbi quis commodo odio aenean sed. Iaculis at erat pellentesque adipiscing commodo elit at. Id semper risus in hendrerit gravida. Pellentesque eu tincidunt tortor aliquam.</p> <p>Adipiscing diam donec adipiscing tristique risus nec feugiat. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget mi proin sed libero enim sed faucibus turpis in. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Massa eget egestas purus viverra accumsan in nisl. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Commodo odio aenean sed adipiscing diam donec. Enim diam vulputate ut pharetra sit amet. Tristique magna sit amet purus gravida quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.</p>"
     }
   ]
 }

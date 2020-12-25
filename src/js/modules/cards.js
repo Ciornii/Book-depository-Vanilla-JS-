@@ -4,6 +4,7 @@ import {
 
 import BooksStorage from './booksStorage';
 import modals from './modals';
+import quickView from './quickView';
 
 function cards() {
 
@@ -126,7 +127,7 @@ function cards() {
                 }
 
                 allStorages();
-                this.quickView(response);
+                quickView(response);
             });
         }
 
@@ -159,7 +160,7 @@ function cards() {
                     this.render(filteredData);
                     this.sorting.style.display = 'inline';
                     allStorages();
-                    this.quickView(response);
+                    quickView(response);
                 });
             });
         }
@@ -203,49 +204,12 @@ function cards() {
                     }
 
                     allStorages();
+                    quickView(response);
                 }
             });
 
             document.querySelector('.navbar__icon').addEventListener('click', () => {
                 searchBar.focus();
-            });
-        }
-
-
-        bookModalTemplate(author, title, id) {
-            return `
-              <li class="popup-list__item" data-id="${id}">
-                <div class="popup-list__title">${title}</div>
-                <div class="popup-list__author">${author}</div>
-              </li>
-            `;
-        }
-
-        quickView(response) {
-
-            document.querySelectorAll('.product__link').forEach(el => {
-                el.addEventListener('click', e => {
-                    e.preventDefault();
-
-                    modals();
-
-                    let target = e.currentTarget;
-                    let parent = target.closest('.product__card');
-                    let bookId = parent.dataset.id;
-
-                    document.querySelector('.popup-form').innerHTML = '';
-
-                    let bookInfo = response.filter((item) => {
-
-                        return item.id == bookId;
-                    });
-
-                    console.log(bookInfo[0].title);
-
-                    //document.querySelector('.popup-form').insertAdjacentHTML('afterbegin',
-                     //   this.bookModalTemplate(bookInfo[0].author, bookInfo[0].title, bookInfo[0].id));
-
-                });
             });
         }
 
@@ -256,7 +220,8 @@ function cards() {
                 allStorages();
                 this.filter(data);
                 this.search(data);
-                this.quickView(data);
+                modals();
+                quickView(data);
             } catch (e) {}
         }
     }

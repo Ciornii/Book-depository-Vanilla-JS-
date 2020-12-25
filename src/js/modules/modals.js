@@ -48,7 +48,7 @@ const modals = () => {
          });
      }
 
-     bindModal('.product__link', '.modal__bg', '.modal__close');
+     bindModal('.product__img', '.modal__bg', '.modal__close');
  };
 
  export default modals;
