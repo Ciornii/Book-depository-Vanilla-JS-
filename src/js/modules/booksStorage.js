@@ -5,7 +5,7 @@ export default class BooksStorage {
     popupListWrapper,
     counter,
     storageName,
-    changeListBtn
+    changeListBtn,
   } = {}) {
     this.addBtn = document.querySelectorAll(addBtn);
     this.addBtnSelector = addBtn;
@@ -38,9 +38,13 @@ export default class BooksStorage {
   deleteItems(itemParent) {
     let id = itemParent.dataset.id;
     if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-      document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = false;
-      document.querySelector(`.product__card[data-id="${id}"]`).
-      querySelector(this.addBtnSelector).classList.remove('active');
+      document
+        .querySelector(`.product__card[data-id="${id}"]`)
+        .querySelector(this.addBtnSelector).disabled = false;
+      document
+        .querySelector(`.product__card[data-id="${id}"]`)
+        .querySelector(this.addBtnSelector)
+        .classList.remove("active");
     }
     itemParent.remove();
     this.itemsCounter();
@@ -48,15 +52,18 @@ export default class BooksStorage {
   }
 
   listenerAddItems() {
-    this.addBtn.forEach(el => {
-      el.addEventListener('click', e => {
+    this.addBtn.forEach((el) => {
+      el.addEventListener("click", (e) => {
         let target = e.currentTarget;
-        let parent = target.closest('.product__card');
+        let parent = target.closest(".product__card");
         let id = parent.dataset.id;
-        let title = parent.querySelector('.product__title').textContent;
-        let author = parent.querySelector('.product__author').textContent;
+        let title = parent.querySelector(".product__title").textContent;
+        let author = parent.querySelector(".product__author").textContent;
 
-        this.popupListWrapper.insertAdjacentHTML('afterbegin', this.createListItem(author, title, id));
+        this.popupListWrapper.insertAdjacentHTML(
+          "afterbegin",
+          this.createListItem(author, title, id)
+        );
         this.itemsCounter();
         this.updateStorage();
         target.disabled = true;
@@ -65,11 +72,11 @@ export default class BooksStorage {
   }
 
   listenerDeleteItems() {
-    this.popupListWrapper.addEventListener('click', e => {
+    this.popupListWrapper.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      if (e.target.closest('.popup-list__delete')) {
-        this.deleteItems(e.target.closest('.popup-list__item'));
+      if (e.target.closest(".popup-list__delete")) {
+        this.deleteItems(e.target.closest(".popup-list__item"));
       }
     });
   }
@@ -80,47 +87,57 @@ export default class BooksStorage {
       this.popupListWrapper.innerHTML = booksLocalStorage;
       this.itemsCounter();
 
-      this.popupListWrapper.querySelectorAll('.popup-list__item').forEach(el => {
-        let id = el.dataset.id;
-        if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = 'true';
-          document.querySelector(`.product__card[data-id="${id}"]`)
-            .querySelector(this.addBtnSelector).classList.add('active');
-        }
-      });
+      this.popupListWrapper
+        .querySelectorAll(".popup-list__item")
+        .forEach((el) => {
+          let id = el.dataset.id;
+          if (document.querySelector(`.product__card[data-id="${id}"]`)) {
+            document
+              .querySelector(`.product__card[data-id="${id}"]`)
+              .querySelector(this.addBtnSelector).disabled = "true";
+            document
+              .querySelector(`.product__card[data-id="${id}"]`)
+              .querySelector(this.addBtnSelector)
+              .classList.add("active");
+          }
+        });
     }
   }
 
   updateStorage() {
     let html = this.popupListWrapper.innerHTML.trim();
-    let moreInfo = this.popupParent.querySelector('.popup-list__more');
+    let moreInfo = this.popupParent.querySelector(".popup-list__more");
 
     if (html.length) {
       localStorage.setItem(this.storageName, html);
-      moreInfo.textContent = ('View full list');
+      moreInfo.textContent = "View full list";
       moreInfo.disabled = false;
     } else {
       localStorage.removeItem(this.storageName);
-      moreInfo.textContent = ('List is empty');
+      moreInfo.textContent = "List is empty";
       moreInfo.disabled = true;
     }
   }
 
   moveToAnotherList() {
-    this.changeListBtn.forEach(el => {
-      el.addEventListener('click', e => {
+    this.changeListBtn.forEach((el) => {
+      el.addEventListener("click", (e) => {
         let target = e.currentTarget;
-        let parent = target.closest('.product__card');
+        let parent = target.closest(".product__card");
         let id = parent.dataset.id;
         if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document.querySelector(`.product__card[data-id="${id}"]`).querySelector(this.addBtnSelector).disabled = false;
-          document.querySelector(`.product__card[data-id="${id}"]`).
-          querySelector(this.addBtnSelector).classList.remove('active');
+          document
+            .querySelector(`.product__card[data-id="${id}"]`)
+            .querySelector(this.addBtnSelector).disabled = false;
+          document
+            .querySelector(`.product__card[data-id="${id}"]`)
+            .querySelector(this.addBtnSelector)
+            .classList.remove("active");
         }
         if (document.querySelector(`.popup-list__item[data-id="${id}"]`)) {
           document.querySelector(`.popup-list__item[data-id="${id}"]`).remove();
         }
-        target.classList.add('active');
+        target.classList.add("active");
         this.itemsCounter();
         this.updateStorage();
       });

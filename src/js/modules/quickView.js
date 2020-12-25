@@ -1,6 +1,9 @@
-const quickView = (response) => {
+import modals from "./modals";
 
-  const bookModalTemplate = (bookInfo) => {
+function quickView(response) {
+  modals();
+
+  function bookModalTemplate(bookInfo) {
     return `
     <div class="modal__img">
     <img src="${bookInfo[0].photo}" alt="${bookInfo[0].title}">
@@ -10,33 +13,34 @@ const quickView = (response) => {
             <h2>${bookInfo[0].title}</h2>
         </div>
         <div class="modal__author">
-            ${bookInfo[0].author}
+            by ${bookInfo[0].author}
         </div>
         <div class="modal__description">
             ${bookInfo[0].description}
         </div>
     </div>
     `;
-  };
+  }
 
-  document.querySelectorAll('.product__img').forEach(el => {
-      el.addEventListener('click', e => {
-          e.preventDefault();
-          e.stopPropagation();
+  document.querySelectorAll("[data-learn-more]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
 
-          let target = e.currentTarget;
-          let parent = target.closest('.product__card');
-          let bookId = parent.dataset.id;
+      let target = e.currentTarget;
+      let parent = target.closest(".product__card");
+      let bookId = parent.dataset.id;
 
-          document.querySelector('.modal__inner').innerHTML = '';
+      document.querySelector(".modal__inner").innerHTML = "";
 
-          let bookInfo = response.filter((item) => {
-            return item.id == bookId;
-          });
-
-          document.querySelector('.modal__inner').insertAdjacentHTML('afterbegin', bookModalTemplate(bookInfo));
+      let bookInfo = response.filter((item) => {
+        return item.id == bookId;
       });
+
+      document
+        .querySelector(".modal__inner")
+        .insertAdjacentHTML("afterbegin", bookModalTemplate(bookInfo));
+    });
   });
-};
+}
 
 export default quickView;
