@@ -1,7 +1,7 @@
 import { getResource } from "../services/services";
-
 import BooksStorage from "./booksStorage";
 import quickView from "./quickView";
+import viewFullList from './viewFullList';
 
 function cards() {
   function allStorages() {
@@ -108,9 +108,9 @@ function cards() {
       this.loadMoreBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        e.target.classList.add("active");
+        e.target.classList.add("load-more--active");
         setTimeout(() => {
-          e.target.classList.remove("active");
+          e.target.classList.remove("load-more--active");
         }, 1000);
 
         let remainItems = this.dataLength - this.pageCounter;
@@ -221,6 +221,7 @@ function cards() {
         this.loadMore(data);
         allStorages();
         quickView(data);
+        viewFullList();
         this.filter(data);
         this.search(data);
       } catch (e) {}

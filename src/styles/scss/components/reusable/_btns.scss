@@ -47,7 +47,7 @@
 }
 
 // ----------------------------------------------------
-.btn.active {
+.btn.btn--active {
   background-color: $grey;
 
   &:hover {
@@ -79,7 +79,7 @@ button:disabled {
     left: 1.5rem;
   }
 }
-.btn.load-more.active {
+.btn.load-more.load-more--active {
   svg {
     top: 11px;
     -webkit-animation: spin 1s linear infinite; /* Safari */

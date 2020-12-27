@@ -1,3 +1,4 @@
+import viewFullList from './viewFullList';
 export default class BooksStorage {
   constructor({
     addBtn,

@@ -49,6 +49,7 @@ function modals() {
   }
 
   bindModal("[data-learn-more]", ".modal__bg", ".modal__close");
+  bindModal(".popup-list__more", ".modal__bg", ".modal__close");
 }
 
 export default modals;
