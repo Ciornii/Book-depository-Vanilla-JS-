@@ -1,4 +1,3 @@
-import viewFullList from './viewFullList';
 export default class BooksStorage {
   constructor({
     addBtn,
@@ -61,13 +60,28 @@ export default class BooksStorage {
         let title = parent.querySelector(".product__title").textContent;
         let author = parent.querySelector(".product__author").textContent;
 
-        this.popupListWrapper.insertAdjacentHTML(
-          "afterbegin",
-          this.createListItem(author, title, id)
+        let alreadyInList = [];
+        this.popupListWrapper
+          .querySelectorAll(".popup-list__title")
+          .forEach((el) => {
+            let existentTitle = el.textContent.toString().toLowerCase().trim();
+
+            alreadyInList.push(existentTitle);
+          });
+
+        let exist = alreadyInList.includes(
+          title.toString().toLowerCase().trim()
         );
-        this.itemsCounter();
-        this.updateStorage();
-        target.disabled = true;
+
+        if (!exist) {
+          this.popupListWrapper.insertAdjacentHTML(
+            "afterbegin",
+            this.createListItem(author, title, id)
+          );
+          this.itemsCounter();
+          this.updateStorage();
+          target.disabled = true;
+        } 
       });
     });
   }
@@ -134,11 +148,14 @@ export default class BooksStorage {
             .querySelector(`.product__card[data-id="${id}"]`)
             .querySelector(this.addBtnSelector)
             .classList.remove("active");
+            target.classList.add("active");
         }
-        if (document.querySelector(`.popup-list__item[data-id="${id}"]`)) {
-          document.querySelector(`.popup-list__item[data-id="${id}"]`).remove();
+
+        let existingOne = this.popupListWrapper.querySelector(`.popup-list__item[data-id="${id}"]`);
+        if (existingOne) {
+          existingOne.remove();
         }
-        target.classList.add("active");
+
         this.itemsCounter();
         this.updateStorage();
       });

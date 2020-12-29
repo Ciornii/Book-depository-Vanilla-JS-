@@ -221,7 +221,7 @@ function cards() {
         this.loadMore(data);
         allStorages();
         quickView(data);
-        viewFullList();
+        viewFullList(data);
         this.filter(data);
         this.search(data);
       } catch (e) {}

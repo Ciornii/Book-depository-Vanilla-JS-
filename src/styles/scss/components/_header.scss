@@ -101,6 +101,10 @@
           }
 
           .navbar__counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 1px;
             border-radius: 50%;
             background-color: #e65a61ce;
             position: absolute;
@@ -111,8 +115,6 @@
             font-size: 11px;
             text-align: center;
             color: white;
-            padding-left: 1px;
-            padding-top: 1px;
             cursor: pointer;
             transition: all 0.2s ease;
           }
