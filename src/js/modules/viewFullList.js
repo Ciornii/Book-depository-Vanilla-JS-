@@ -17,6 +17,11 @@ function viewFullList(response) {
               by ${data.author}
           </div>
       </div>
+      <button class="list-item__delete">
+        <svg>
+          <use xlink:href="assets/icons/sprite.svg#close"></use>
+        </svg>
+      </button>
     </div>
     `;
   }
