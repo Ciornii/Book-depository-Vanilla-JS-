@@ -16,6 +16,14 @@ function viewFullList(response) {
           <div class="list-item__author">
               by ${data.author}
           </div>
+          <div class="list-item__btns">
+            <button class="btn list-item__book">
+              Read book
+            </button>
+            <button class="btn list-item__summary">
+              Read summary
+            </button>
+          </div>
       </div>
       <button class="list-item__delete">
         <svg>
@@ -37,22 +45,17 @@ function viewFullList(response) {
 
       let target = e.currentTarget;
       let parent = target.closest(".popup-list");
-      let books = parent.querySelectorAll(".popup-list__title");
+      let books = parent.querySelectorAll(".popup-list__item");
 
       books.forEach((book) => {
-        let title = book.textContent.toString().toLowerCase().trim();
-        title = title.split(".").join("");
-        
+        let id = book.dataset.id;
+
         let filteredData = response.filter((item) => {
-          return Object.keys(item).some((key) =>
-            item[key].toString().toLowerCase().trim().includes(title)
-          );
+          return item.id == id;
         });
 
-        console.log(filteredData);
-
         list.insertAdjacentHTML(
-          "afterbegin",
+          "beforeend",
           bookModalTemplate(filteredData[0])
         );
       });

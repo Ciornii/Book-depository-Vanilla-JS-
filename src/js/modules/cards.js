@@ -1,7 +1,7 @@
 import { getResource } from "../services/services";
 import BooksStorage from "./booksStorage";
 import quickView from "./quickView";
-import viewFullList from './viewFullList';
+import viewFullList from "./viewFullList";
 
 function cards() {
   function allStorages() {
@@ -23,16 +23,17 @@ function cards() {
       changeListBtn: '[data-add-to="Wish List"]',
     });
     mybooks.init();
-  };
+  }
 
   class BookCard {
     constructor() {
-      this.pageCounter = 6;
-      this.currentCounter = 0;
-      this.dataLength = 0;
-      this.data = [];
-      this.loadMoreBtn = document.querySelector("#loadMore");
       this.wrapper = document.querySelector(".products__cards");
+      this.data = [];
+      this.dataLength = 0;
+      this.loadMoreBtn = document.querySelector("#loadMore");
+      this.itemsPerPage = 6;
+      this.pageCounter = this.itemsPerPage;
+      this.currentCounter = 0;
       this.sorting = document.querySelector(".products__sorting");
     }
 
@@ -114,8 +115,8 @@ function cards() {
         }, 1000);
 
         let remainItems = this.dataLength - this.pageCounter;
-        if (remainItems > 9) {
-          this.pageCounter = this.pageCounter + 6;
+        if (remainItems >= this.itemsPerPage + (this.itemsPerPage / 2)) {
+          this.pageCounter = this.pageCounter + this.itemsPerPage;
           this.render(this.data);
         } else {
           this.pageCounter = this.pageCounter + remainItems;
@@ -139,11 +140,10 @@ function cards() {
           });
           e.target.classList.add("active");
 
-          this.pageCounter = 6;
+          this.pageCounter = this.itemsPerPage;
           this.currentCounter = 0;
 
           this.wrapper.innerHTML = "";
-
           this.loadMoreBtn.style.display = "block";
 
           let keyWord = element.textContent.toLowerCase().trim();
@@ -191,7 +191,11 @@ function cards() {
             });
 
             if (searchResult.length > 0) {
-              searchResultInfo.innerHTML = `Search results for: '${e.target.value}'`;
+              if (searchResult.length == 1) {
+                searchResultInfo.innerHTML = `(${searchResult.length}) Search result for: '${e.target.value}'`;
+              } else {
+                searchResultInfo.innerHTML = `(${searchResult.length}) Search results for: '${e.target.value}'`;
+              }
 
               for (let i = 0; i < searchResult.length; i++) {
                 this.cardTemplate(searchResult, i);
@@ -215,6 +219,21 @@ function cards() {
       });
     }
 
+    selectItemsPerPage() {
+      const select = document.querySelector("select[data-items-perpage]");
+      select.addEventListener("change", (e) => {
+        let value = parseInt(select.value);
+        this.itemsPerPage = value;
+        this.pageCounter = value;
+        this.currentCounter = 0;
+
+        this.wrapper.innerHTML = "";
+        this.render(this.data);
+
+        this.loadMoreBtn.style.display = "block";
+      });
+    }
+
     init(data) {
       try {
         this.render(data);
@@ -224,6 +243,7 @@ function cards() {
         viewFullList(data);
         this.filter(data);
         this.search(data);
+        this.selectItemsPerPage();
       } catch (e) {}
     }
   }

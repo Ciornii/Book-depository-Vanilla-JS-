@@ -6,20 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   "use strict";
 
   cards();
-
-  popup({
-    popupWrapper: '.popup-list[data-popup="My Books"]',
-    trigger: ".navbar__btn--my-books",
-    activeClass: "popup-list--active",
-    close: ".popup-list__close",
-  });
-  popup({
-    popupWrapper: '.popup-list[data-popup="Wish List"]',
-    trigger: ".navbar__btn--wishlist",
-    activeClass: "popup-list--active",
-    close: ".popup-list__close",
-  });
-
+  popup();
   scrolling(".scroll-up");
 
   //==============================================================================================
@@ -66,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       menu.classList.toggle("mmenu-hide");
     });
   });
+  
 });
 
 window.addEventListener("load", (event) => {

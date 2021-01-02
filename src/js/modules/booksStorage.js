@@ -35,22 +35,6 @@ export default class BooksStorage {
     this.counter.innerHTML = length;
   }
 
-  deleteItems(itemParent) {
-    let id = itemParent.dataset.id;
-    if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-      document
-        .querySelector(`.product__card[data-id="${id}"]`)
-        .querySelector(this.addBtnSelector).disabled = false;
-      document
-        .querySelector(`.product__card[data-id="${id}"]`)
-        .querySelector(this.addBtnSelector)
-        .classList.remove("active");
-    }
-    itemParent.remove();
-    this.itemsCounter();
-    this.updateStorage();
-  }
-
   listenerAddItems() {
     this.addBtn.forEach((el) => {
       el.addEventListener("click", (e) => {
@@ -81,9 +65,21 @@ export default class BooksStorage {
           this.itemsCounter();
           this.updateStorage();
           target.disabled = true;
-        } 
+        }
       });
     });
+  }
+
+  deleteItems(itemParent) {
+    let id = itemParent.dataset.id,
+      selector = document.querySelector(`.product__card[data-id="${id}"]`);
+    if (selector) {
+      selector.querySelector(this.addBtnSelector).disabled = false;
+      selector.querySelector(this.addBtnSelector).classList.remove("active");
+    }
+    itemParent.remove();
+    this.itemsCounter();
+    this.updateStorage();
   }
 
   listenerDeleteItems() {
@@ -92,6 +88,18 @@ export default class BooksStorage {
 
       if (e.target.closest(".popup-list__delete")) {
         this.deleteItems(e.target.closest(".popup-list__item"));
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (e.target.closest(".list-item__delete")) {
+        let id = e.target.closest(".list-item").dataset.id,
+        selector = document.querySelector(`.popup-list__item[data-id="${id}"]`);
+
+        this.deleteItems(e.target.closest(".list-item"));
+        this.deleteItems(selector);
       }
     });
   }
@@ -105,15 +113,14 @@ export default class BooksStorage {
       this.popupListWrapper
         .querySelectorAll(".popup-list__item")
         .forEach((el) => {
-          let id = el.dataset.id;
-          if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-            document
-              .querySelector(`.product__card[data-id="${id}"]`)
-              .querySelector(this.addBtnSelector).disabled = "true";
-            document
-              .querySelector(`.product__card[data-id="${id}"]`)
-              .querySelector(this.addBtnSelector)
-              .classList.add("active");
+          let id = el.dataset.id,
+            selector = document.querySelector(
+              `.product__card[data-id="${id}"]`
+            );
+
+          if (selector) {
+            selector.querySelector(this.addBtnSelector).disabled = "true";
+            selector.querySelector(this.addBtnSelector).classList.add("active");
           }
         });
     }
@@ -137,21 +144,23 @@ export default class BooksStorage {
   moveToAnotherList() {
     this.changeListBtn.forEach((el) => {
       el.addEventListener("click", (e) => {
-        let target = e.currentTarget;
-        let parent = target.closest(".product__card");
-        let id = parent.dataset.id;
-        if (document.querySelector(`.product__card[data-id="${id}"]`)) {
-          document
-            .querySelector(`.product__card[data-id="${id}"]`)
-            .querySelector(this.addBtnSelector).disabled = false;
-          document
-            .querySelector(`.product__card[data-id="${id}"]`)
+        let target = e.currentTarget,
+          parent = target.closest(".product__card"),
+          id = parent.dataset.id,
+          selector = document.querySelector(`.product__card[data-id="${id}"]`);
+
+        if (selector) {
+          selector.querySelector(this.addBtnSelector).disabled = false;
+          selector
             .querySelector(this.addBtnSelector)
             .classList.remove("active");
-            target.classList.add("active");
+          target.classList.add("active");
         }
 
-        let existingOne = this.popupListWrapper.querySelector(`.popup-list__item[data-id="${id}"]`);
+        let existingOne = this.popupListWrapper.querySelector(
+          `.popup-list__item[data-id="${id}"]`
+        );
+
         if (existingOne) {
           existingOne.remove();
         }
