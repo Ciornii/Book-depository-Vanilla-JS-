@@ -35,17 +35,38 @@ function cards() {
       this.pageCounter = this.itemsPerPage;
       this.currentCounter = 0;
       this.sorting = document.querySelector(".products__sorting");
+      this.sortingInput = document.querySelector("select[data-sort-items]");
+      this.title = "";
+      this.description = "";
+    }
+
+    processingText(response, i) {
+      let threePoints = "...",
+        view = document.querySelector(".products__view--active").dataset.view;
+
+      if (response[i].title.length > 55) {
+        this.description = response[i].description
+          .slice(0, 450)
+          .concat(threePoints);
+      } else {
+        this.description = response[i].description
+          .slice(0, 530)
+          .concat(threePoints);
+      }
+
+      if (view == "list") {
+        this.title = response[i].title;
+      } else if (view == "grid") {
+        if (response[i].title.length > 45) {
+          this.title = response[i].title.slice(0, 44).concat(threePoints);
+        } else {
+          this.title = response[i].title;
+        }
+      }
     }
 
     cardTemplate(response, i) {
-      let threePoints = "...";
-      let title = "";
-
-      if (response[i].title.length > 45) {
-        title = response[i].title.slice(0, 44).concat(threePoints);
-      } else {
-        title = response[i].title;
-      }
+      this.processingText(response, i);
 
       let card = document.createElement("li");
       card.classList.add("product__card");
@@ -57,10 +78,13 @@ function cards() {
                 <div class="product__bottom">
                    <div class="product__info" data-learn-more>
                         <div class="product__title">
-                            ${title}
+                            ${this.title}
                         </div>
                         <div class="product__author">
                             by ${response[i].author}
+                        </div>
+                        <div class="product__description">
+                            ${this.description}
                         </div>
                    </div>
                    <div class="product__actions">
@@ -103,28 +127,27 @@ function cards() {
           break;
         }
       }
+
+      allStorages();
+      quickView(this.data);
     }
 
-    loadMore(response) {
+    loadMore() {
       this.loadMoreBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        e.target.classList.add("load-more--active");
+        e.target.disabled = true;
         setTimeout(() => {
-          e.target.classList.remove("load-more--active");
-        }, 1000);
-
-        let remainItems = this.dataLength - this.pageCounter;
-        if (remainItems >= this.itemsPerPage + (this.itemsPerPage / 2)) {
-          this.pageCounter = this.pageCounter + this.itemsPerPage;
-          this.render(this.data);
-        } else {
-          this.pageCounter = this.pageCounter + remainItems;
-          this.render(this.data);
-        }
-
-        allStorages();
-        quickView(response);
+          e.target.disabled = false;
+          let remainItems = this.dataLength - this.pageCounter;
+          if (remainItems >= this.itemsPerPage + this.itemsPerPage / 2) {
+            this.pageCounter = this.pageCounter + this.itemsPerPage;
+            this.render(this.data);
+          } else {
+            this.pageCounter = this.pageCounter + remainItems;
+            this.render(this.data);
+          }
+        }, 300);
       });
     }
 
@@ -145,6 +168,7 @@ function cards() {
 
           this.wrapper.innerHTML = "";
           this.loadMoreBtn.style.display = "block";
+          this.sorting.style.display = "inline";
 
           let keyWord = element.textContent.toLowerCase().trim();
 
@@ -153,12 +177,10 @@ function cards() {
               item[key].toString().toLowerCase().trim().includes(keyWord)
             );
           });
+          this.data = filteredData;
 
-          this.render(filteredData);
-          this.sorting.style.display = "inline";
-
-          allStorages();
-          quickView(response);
+          this.sortItems();
+          this.render(this.data);
         });
       });
     }
@@ -209,8 +231,8 @@ function cards() {
               "Nothing found. </br> Please try again with some different keywords.";
           }
 
-          allStorages();
           quickView(response);
+          allStorages();
         }
       });
 
@@ -226,24 +248,52 @@ function cards() {
         this.itemsPerPage = value;
         this.pageCounter = value;
         this.currentCounter = 0;
-
         this.wrapper.innerHTML = "";
         this.render(this.data);
 
-        this.loadMoreBtn.style.display = "block";
+        if (this.dataLength <= this.pageCounter) {
+          this.loadMoreBtn.style.display = "none";
+        } else {
+          this.loadMoreBtn.style.display = "block";
+        }
+      });
+    }
+
+    sortItems() {
+      let valueSort = this.sortingInput.value;
+      if (valueSort == "a-z") {
+        this.data.sort(function (a, b) {
+          if (a.title < b.title) return -1;
+          if (a.title > b.title) return 1;
+          return 0;
+        });
+      } else if (valueSort == "z-a") {
+        this.data.sort(function (a, b) {
+          if (a.title > b.title) return -1;
+          if (a.title < b.title) return 1;
+          return 0;
+        });
+      }
+    }
+
+    sortItemsListener() {
+      this.sortingInput.addEventListener("change", (e) => {
+        this.currentCounter = 0;
+        this.wrapper.innerHTML = "";
+        this.sortItems();
+        this.render(this.data);
       });
     }
 
     init(data) {
       try {
         this.render(data);
-        this.loadMore(data);
-        allStorages();
-        quickView(data);
+        this.loadMore();
         viewFullList(data);
         this.filter(data);
         this.search(data);
         this.selectItemsPerPage();
+        this.sortItemsListener();
       } catch (e) {}
     }
   }

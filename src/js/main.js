@@ -53,7 +53,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
       menu.classList.toggle("mmenu-hide");
     });
   });
-  
+
+  //==============================================================================================
+  //============================================================ products views
+  document.querySelectorAll(".products__view").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      let productsWrapper = document.querySelector(".products__cards");
+      let parent = e.target.closest(".products__view");
+      let view = parent.dataset.view;
+
+      if (view == "list") {
+        productsWrapper.classList.add("products__cards--list");
+        parent.classList.add("products__view--active");
+        document.querySelector('.products__view[data-view="grid"]').classList.remove("products__view--active");
+      } else if(view == "grid") {
+        productsWrapper.classList.remove("products__cards--list");
+        parent.classList.add("products__view--active");
+        document.querySelector('.products__view[data-view="list"]').classList.remove("products__view--active");
+      }
+    });
+  });
 });
 
 window.addEventListener("load", (event) => {

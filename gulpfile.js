@@ -40,6 +40,7 @@ const paths = {
         fonts: './src/assets/fonts',
         icons: './src/assets/icons',
         img: './src/assets/img',
+        pdf: './src/assets/pdf',
         partials: './src/html/partials/**/*.html',
         scss: './src/styles'
     }
@@ -276,13 +277,19 @@ gulp.task('copy:db', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('copy:pdf', function () {
+    return gulp.src([paths.src.pdf + '/*', paths.src.pdf + '/**/*'])
+        .pipe(gulp.dest(paths.dist.assets + '/pdf'))
+        .pipe(browserSync.stream());
+});
+
 
 
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------  Tasks 
 
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'copy:pdf', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
@@ -292,6 +299,7 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fo
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
     gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
+    gulp.watch([paths.src.assets + '/pdf/*', paths.src.assets + '/pdf/**/*'], gulp.series('copy:pdf'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
 }));

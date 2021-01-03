@@ -17,12 +17,12 @@ function viewFullList(response) {
               by ${data.author}
           </div>
           <div class="list-item__btns">
-            <button class="btn list-item__book">
+            <a href="${data.bookLink}" class="btn list-item__book" target="_blank">
               Read book
-            </button>
-            <button class="btn list-item__summary">
+            </a>
+            <a href="${data.summaryLink}" class="btn list-item__summary" target="_blank">
               Read summary
-            </button>
+            </a>
           </div>
       </div>
       <button class="list-item__delete">

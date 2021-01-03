@@ -57,12 +57,10 @@
                             <div class="products__settings">
                                 <div class="products__sorting">
                                     <form method="get" action="">
-                                        <select>
-                                            <option value="menu_order" selected="selected">Default sorting</option>
-                                            <option value="popularity">Sort by popularity</option>
-                                            <option value="date">Sort by latest</option>
-                                            <option value="price">Sort by name (A-Z)</option>
-                                            <option value="price-desc">Sort by name (Z-A)</option>
+                                        <select data-sort-items>
+                                            <option value="default" selected="selected">Default sorting</option>
+                                            <option value="a-z">Sort by name (A-Z)</option>
+                                            <option value="z-a">Sort by name (Z-A)</option>
                                         </select>
                                     </form>
                                     <form method="get" action="">
@@ -73,12 +71,12 @@
                                     </form>
                                 </div>
                                 <div class="products__views">
-                                    <div class="products__view">
+                                    <div class="products__view products__view--active" data-view="grid">
                                         <svg>
                                             <use xlink:href="assets/icons/sprite.svg#view-grid"></use>
                                         </svg>
                                     </div>
-                                    <div class="products__view">
+                                    <div class="products__view" data-view="list">
                                         <svg>
                                             <use xlink:href="assets/icons/sprite.svg#view-list"></use>
                                         </svg>
