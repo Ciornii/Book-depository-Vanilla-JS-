@@ -219,5 +219,26 @@
       "bookLink": "assets/pdf/books/how_to_stop_worrying_and_start_living--full.pdf",
       "summaryLink": "assets/pdf/summaries/how_to_stop_worrying_and_start_living--sum.pdf"
     }
+  ],
+  "quotes": [{
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt.",
+      "author": "Anonim 1"
+    },
+    {
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. <br/> Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis.",
+      "author": "Anonim 2"
+    },
+    {
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt.",
+      "author": "Anonim 3"
+    },
+    {
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt.Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Ac auctor augue mauris augue neque gravida in fermentum. Sodales neque sodales ut etiam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis.",
+      "author": "Anonim 4"
+    },
+    {
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi etiam dignissim diam quis enim lobortis. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Id semper risus in hendrerit gravida rutrum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt.",
+      "author": "Anonim 5"
+    }
   ]
 }

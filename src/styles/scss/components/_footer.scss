@@ -1,11 +1,9 @@
 .footer {
-  display: block;
-  color: black;
-  margin-top: 5rem;
+  background-color: $black;
+  color: white;
 
   .copyright {
     min-height: 2.87rem;
-    background-color:white;
     padding-top: 0.7rem;
     border-top: 1px solid $border-color;
 
@@ -59,10 +57,11 @@
         line-height: 1.82;
         letter-spacing: 0.55px;
         text-align: left;
-        color: black;
+        color: white;
 
         &:hover {
-          color: black;
+          color: white;
+          text-decoration: underline;
         }
       }
 

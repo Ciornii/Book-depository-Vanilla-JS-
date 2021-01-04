@@ -1,6 +1,7 @@
 import cards from "./modules/cards";
 import popup from "./modules/popup";
 import scrolling from "./modules/scrolling";
+import quotes from "./modules/quotes";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   "use strict";
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   cards();
   popup();
   scrolling(".scroll-up");
+  quotes();
 
   //==============================================================================================
   //============================================================ Preloader
