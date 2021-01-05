@@ -1,23 +1,24 @@
 .btn {
   position: relative;
   display: block;
-  background-color: $main-color;
+  background-color: transparent;
   padding: 0 15px;
   line-height: 3;
   margin-top: 3rem;
   transition: all 0.2s ease;
   border-radius: 50px;
+  border: 1px solid $border-color;
   // text
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: 0.7px;
-  color: black;
+  color: $dark-grey;
   text-align: center;
 
   &:hover {
-    background-color: darken($main-color, 15%);
+    box-shadow: 0 0 10px #e4e4e4;
   }
 
   &:focus,
@@ -72,10 +73,6 @@ button:disabled {
   padding: 0 2rem;
   border: 1px solid $main-color;
 
-  &:hover {
-    border: 1px solid darken($main-color, 15%);
-  }
-
   svg {
     display: none;
     @include align-center(vertical);
@@ -93,7 +90,6 @@ button:disabled {
   svg {
     display: block;
     top: 11px;
-    -webkit-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
   }
 }
@@ -112,7 +108,7 @@ button:disabled {
   border-radius: 50px;
   cursor: pointer;
   overflow: hidden;
-  transition: all 0.2s;
+  transition: all 2s ease;
   opacity: 0;
 
   svg {

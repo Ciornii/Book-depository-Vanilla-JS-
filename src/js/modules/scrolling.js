@@ -1,13 +1,15 @@
 function scrolling(upSelector) {
-  const upElem = document.querySelector(upSelector);
+  const scrollUp = document.querySelector(upSelector);
 
   window.addEventListener("scroll", () => {
-    if (document.documentElement.scrollTop > 700) {
-      upElem.classList.add("animated", "fadeIn");
-      upElem.classList.remove("fadeOut");
+    if (document.documentElement.scrollTop > 500) {
+      scrollUp.style.visibility = "visible";
+      scrollUp.classList.add("animated", "fadeIn");
+      scrollUp.classList.remove("fadeOut");
     } else {
-      upElem.classList.add("fadeOut");
-      upElem.classList.remove("fadeIn");
+      scrollUp.classList.add("fadeOut");
+      scrollUp.classList.remove("fadeIn");
+      scrollUp.style.visibility = "hidden";
     }
   });
 

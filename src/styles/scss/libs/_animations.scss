@@ -4,7 +4,7 @@
   --animate-repeat: 1;
 }
 
-.animate__animated {
+.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-duration: var(--animate-duration);
@@ -39,7 +39,7 @@
   }
 }
 
-.animate__jackInTheBox {
+.jackInTheBox {
   -webkit-animation-name: jackInTheBox;
   animation-name: jackInTheBox;
 }

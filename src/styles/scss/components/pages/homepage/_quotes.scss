@@ -26,6 +26,7 @@
     justify-content: center;
     align-items: center;
     height: 400px;
+    transition: all 3s ease;
 
     .quotes__text {
       @include font-size(22px);
