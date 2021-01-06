@@ -131,13 +131,11 @@
         .btn {
           margin-top: 0;
           line-height: 2.5;
-          transition: box-shadow .1s ease;
+          transition: initial;
         }
 
         .list-item__book {
           margin-right: 15px;
-        }
-        .list-item__summary {
         }
       }
     }

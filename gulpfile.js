@@ -35,13 +35,12 @@ const paths = {
         base: './src/',
         css: './src/styles',
         js: './src/js',
-        html: './src/html/pages/**/*.html',
         assets: './src/assets/**/*.*',
         fonts: './src/assets/fonts',
         icons: './src/assets/icons',
         img: './src/assets/img',
         pdf: './src/assets/pdf',
-        partials: './src/html/partials/**/*.html',
+        partials: './src/partials/**/*.html',
         scss: './src/styles'
     }
 };
@@ -54,11 +53,11 @@ gulp.task('clean:dist', function () {
 
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------   HTML development
-gulp.task('html', function () {
-    return gulp.src([paths.src.html])
+gulp.task('copy:html', function () {
+    return gulp.src([paths.src.base + '*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'development'
             }
@@ -67,70 +66,17 @@ gulp.task('html', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('index', function () {
-    return gulp.src([paths.src.base + '*.html'])
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: './src/html/partials/',
-            context: {
-                environment: 'development'
-            }
-        }))
-        .pipe(gulp.dest(paths.dist.base))
-        .pipe(browserSync.stream());
-});
 
 // --------------------------------------------------   HTML production
-gulp.task('copy:dist:html', function () {
-    return gulp.src([paths.src.html])
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: './src/html/partials/',
-            context: {
-                environment: 'production'
-            }
-        }))
-        .pipe(gulp.dest(paths.dist.html))
-        .pipe(browserSync.stream());
-});
 
 gulp.task('minify:html', function () {
-    return gulp.src([paths.dist.html + '/**/*.html'])
-        .pipe(htmlmin({
-            collapseWhitespace: true
-        }))
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: './src/html/partials/',
-            context: {
-                environment: 'production'
-            }
-        }))
-        .pipe(gulp.dest(paths.dist.html))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('copy:dist:html:index', function () {
-    return gulp.src([paths.src.base + '*.html'])
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: './src/html/partials/',
-            context: {
-                environment: 'production'
-            }
-        }))
-        .pipe(gulp.dest(paths.dist.base))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('minify:html:index', function () {
     return gulp.src([paths.dist.base + '*.html'])
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'production'
             }
@@ -288,13 +234,16 @@ gulp.task('copy:pdf', function () {
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------  Tasks 
 
+// build
+gulp.task('build', gulp.series('clean:dist', 'copy:html', 'minify:html', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build'));
+
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'copy:pdf', 'compile:scss', 'js:main', function () {
+gulp.task('serve', gulp.series('copy:html', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'copy:pdf', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
-    gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
+    gulp.watch([paths.src.base + '*.html', paths.src.partials], gulp.series('copy:html'));
     gulp.watch([paths.src.base + '/db.json'], gulp.series('copy:db'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
     gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
@@ -302,22 +251,6 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:db', 'copy:img', 'copy:fo
     gulp.watch([paths.src.assets + '/pdf/*', paths.src.assets + '/pdf/**/*'], gulp.series('copy:pdf'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
-}));
-
-
-// build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
-    browserSync.init({
-        server: paths.dist.base
-    });
-
-    gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
-    gulp.watch([paths.src.base + '/db.json'], gulp.series('copy:db'));
-    gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
-    gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
-    gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
-    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss', 'minify:css'));
-    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main:build'));
 }));
 
 // default

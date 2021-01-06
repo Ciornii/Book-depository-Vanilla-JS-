@@ -231,6 +231,11 @@ function cards() {
               "Nothing found. </br> Please try again with some different keywords.";
           }
 
+          const lostFocus = () => {
+            searchBar.value = "";
+          };
+          searchBar.addEventListener("blur", lostFocus, { once: true });
+
           quickView(response);
           allStorages();
         }

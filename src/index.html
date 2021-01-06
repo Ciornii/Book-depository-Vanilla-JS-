@@ -57,16 +57,17 @@
                             <div class="products__settings">
                                 <div class="products__sorting">
                                     <form method="get" action="">
+                                        Sort by:
                                         <select data-sort-items>
-                                            <option value="default" selected="selected">Default sorting</option>
-                                            <option value="a-z">Sort by name (A-Z)</option>
-                                            <option value="z-a">Sort by name (Z-A)</option>
+                                            <option value="default" selected="true" disabled>Default</option>
+                                            <option value="a-z">Name (A-Z)</option>
+                                            <option value="z-a">Name (Z-A)</option>
                                         </select>
                                     </form>
                                     <form method="get" action="">
                                         <select data-items-perpage>
-                                            <option value="6" selected="selected">Show 6 per page</option>
-                                            <option value="12">Show 12 per page</option>
+                                            <option value="6" selected="true">6</option>
+                                            <option value="12">12</option>
                                         </select>
                                     </form>
                                 </div>

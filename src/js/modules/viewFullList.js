@@ -4,6 +4,25 @@ function viewFullList(response) {
   modals();
 
   function bookModalTemplate(data) {
+    let readBook = '';
+    let readSummary = '';
+
+    if (data.bookLink.trim() != '') {
+      readBook = ` 
+        <a href="${data.bookLink}" class="btn list-item__book" target="_blank">
+          Read book
+        </a>
+      `;
+    } else { readBook = ''; }
+
+    if (data.summaryLink.trim() != '') {
+      readSummary = ` 
+        <a href="${data.summaryLink}" class="btn list-item__summary" target="_blank">
+          Read summary
+        </a>
+      `;
+    } else { readSummary = ''; }
+
     return `
     <div class="list-item" data-id="${data.id}">
       <div class="list-item__img">
@@ -17,12 +36,8 @@ function viewFullList(response) {
               by ${data.author}
           </div>
           <div class="list-item__btns">
-            <a href="${data.bookLink}" class="btn list-item__book" target="_blank">
-              Read book
-            </a>
-            <a href="${data.summaryLink}" class="btn list-item__summary" target="_blank">
-              Read summary
-            </a>
+            ${readBook}
+            ${readSummary}
           </div>
       </div>
       <button class="list-item__delete">
