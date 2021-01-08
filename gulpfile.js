@@ -235,16 +235,15 @@ gulp.task('copy:pdf', function () {
 // --------------------------------------------------  Tasks 
 
 // build
-gulp.task('build', gulp.series('clean:dist', 'copy:html', 'minify:html', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build'));
+gulp.task('build', gulp.series('clean:dist', 'copy:html', 'minify:html', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build'));
 
 // serve
-gulp.task('serve', gulp.series('copy:html', 'copy:db', 'copy:img', 'copy:fonts', 'copy:icons', 'copy:pdf', 'compile:scss', 'js:main', function () {
+gulp.task('serve', gulp.series('copy:html', 'copy:img', 'copy:fonts', 'copy:icons', 'copy:pdf', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.base + '*.html', paths.src.partials], gulp.series('copy:html'));
-    gulp.watch([paths.src.base + '/db.json'], gulp.series('copy:db'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
     gulp.watch([paths.src.icons + '/*.svg', paths.src.icons + '/**/*.svg'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));

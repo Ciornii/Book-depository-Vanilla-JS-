@@ -1,4 +1,4 @@
-{
+export const DB = {
   "books": [{
       "id": 1,
       "category": "personal development",

@@ -1,4 +1,4 @@
-import { getResource } from "../services/services";
+import { DB } from "../db";
 import BooksStorage from "./booksStorage";
 import quickView from "./quickView";
 import viewFullList from "./viewFullList";
@@ -41,7 +41,6 @@ function cards() {
     }
 
     cardTemplate(response, i) {
-
       if (response[i].title.length > 45) {
         this.title = response[i].title.substr(0, 44) + "...";
       } else {
@@ -285,10 +284,7 @@ function cards() {
   }
 
   let getBooks = new BookCard();
-
-  getResource("http://localhost:3000/books")
-    .then((data) => getBooks.init(data))
-    .catch((err) => console.error(err));
+  getBooks.init(DB.books);
 }
 
 export default cards;

@@ -1,4 +1,4 @@
-import { getResource } from "../services/services";
+import {DB} from '../db';
 
 function quotes() {
   function getQuotes(data) {
@@ -44,9 +44,7 @@ function quotes() {
     });
   }
 
-  getResource("http://localhost:3000/quotes")
-    .then((data) => getQuotes(data))
-    .catch((err) => console.error(err));
+  getQuotes(DB.quotes);
 }
 
 export default quotes;
