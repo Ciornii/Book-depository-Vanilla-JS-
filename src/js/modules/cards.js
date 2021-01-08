@@ -40,33 +40,13 @@ function cards() {
       this.description = "";
     }
 
-    processingText(response, i) {
-      let threePoints = "...",
-        view = document.querySelector(".products__view--active").dataset.view;
-
-      if (response[i].title.length > 55) {
-        this.description = response[i].description
-          .slice(0, 450)
-          .concat(threePoints);
-      } else {
-        this.description = response[i].description
-          .slice(0, 530)
-          .concat(threePoints);
-      }
-
-      if (view == "list") {
-        this.title = response[i].title;
-      } else if (view == "grid") {
-        if (response[i].title.length > 45) {
-          this.title = response[i].title.slice(0, 44).concat(threePoints);
-        } else {
-          this.title = response[i].title;
-        }
-      }
-    }
-
     cardTemplate(response, i) {
-      this.processingText(response, i);
+
+      if (response[i].title.length > 45) {
+        this.title = response[i].title.substr(0, 44) + "...";
+      } else {
+        this.title = response[i].title;
+      }
 
       let card = document.createElement("li");
       card.classList.add("product__card");
@@ -84,8 +64,9 @@ function cards() {
                             by ${response[i].author}
                         </div>
                         <div class="product__description">
-                            ${this.description}
+                            ${response[i].description}
                         </div>
+                        <div class="product__read-more">...</div>
                    </div>
                    <div class="product__actions">
                         <a href="#" class="product__link" data-learn-more>
