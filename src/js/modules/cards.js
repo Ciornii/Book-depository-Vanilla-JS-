@@ -40,20 +40,20 @@ function cards() {
       this.description = "";
     }
 
-    cardTemplate(response, i) {
-
-      if (response[i].title.length > 45) {
-        this.title = response[i].title.substr(0, 44) + "...";
+    cardTemplate({ id, photo, title, author, description }) {
+     
+      if (title.length > 45) {
+        this.title = title.substr(0, 44) + "...";
       } else {
-        this.title = response[i].title;
+        this.title = title;
       }
 
       let card = document.createElement("li");
       card.classList.add("product__card");
-      card.setAttribute("data-id", `${response[i].id}`);
+      card.setAttribute("data-id", `${id}`);
       card.innerHTML = `
                 <div class="product__img" data-learn-more>
-                   <img src="${response[i].photo}" alt="${response[i].title}">
+                   <img src="${photo}" alt="${title}">
                 </div>
                 <div class="product__bottom">
                    <div class="product__info" data-learn-more>
@@ -61,10 +61,10 @@ function cards() {
                             ${this.title}
                         </div>
                         <div class="product__author">
-                            by ${response[i].author}
+                            by ${author}
                         </div>
                         <div class="product__description">
-                            ${response[i].description}
+                            ${description}
                         </div>
                         <div class="product__read-more">...</div>
                    </div>
@@ -99,7 +99,7 @@ function cards() {
 
       while (this.currentCounter < this.pageCounter) {
         let i = this.currentCounter;
-        this.cardTemplate(response, i);
+        this.cardTemplate(response[i]);
 
         this.currentCounter++;
 
@@ -201,7 +201,7 @@ function cards() {
               }
 
               for (let i = 0; i < searchResult.length; i++) {
-                this.cardTemplate(searchResult, i);
+                this.cardTemplate(searchResult[i]);
               }
             } else {
               searchResultInfo.innerHTML =
