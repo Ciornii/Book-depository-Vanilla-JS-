@@ -5,17 +5,17 @@ function quotes() {
     const quotesWrapper = document.querySelector(".quotes__inner");
     let paused = false;
 
-    function quoteTemplate(data, i) {
+    function quoteTemplate({quote, author}) {
       return `
       <div class="quotes__text">
-        ${data[i].quote}
+        ${quote}
       </div>
-      <div class="quotes__author">${data[i].author}</div>
+      <div class="quotes__author">${author}</div>
       `;
     }
 
     let i = Math.floor(Math.random() * Math.floor(data.length));
-    quotesWrapper.innerHTML = quoteTemplate(data, i);
+    quotesWrapper.innerHTML = quoteTemplate(data[i]);
 
     function autoPlay() {
       paused = setInterval(() => {
@@ -27,7 +27,7 @@ function quotes() {
         setTimeout(() => {
           quotesWrapper.style.visibility = "hidden";
           quotesWrapper.innerHTML = "";
-          quotesWrapper.innerHTML = quoteTemplate(data, i);
+          quotesWrapper.innerHTML = quoteTemplate(data[i]);
           quotesWrapper.style.visibility = "visible";
           quotesWrapper.classList.remove("fadeOut");
           quotesWrapper.classList.add("animated", "fadeIn");
