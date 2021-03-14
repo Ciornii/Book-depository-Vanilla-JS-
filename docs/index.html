@@ -1,3 +1,251 @@
-<!DOCTYPE html><html lang="ro"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- Primary Meta Tags --><title></title><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="title" content=""><meta name="author" content=""><meta name="description" content=""><meta name="keywords" content=""><link rel="canonical" href="#"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="#"><meta property="og:title" content=""><meta property="og:description" content=""><meta property="og:image" content="#"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="#"><meta property="twitter:title" content=""><meta property="twitter:description" content=""><meta property="twitter:image" content="#"><!-- Favicon --><!-- <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo/favicon/apple-touch-icon.png">
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="" />
+<link rel="canonical" href="#">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="#">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="#">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="#">
+<meta property="twitter:title" content="">
+<meta property="twitter:description" content="">
+<meta property="twitter:image" content="#">
+
+<!-- Favicon -->
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/logo/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/logo/favicon/favicon-16x16.png"> --><link rel="manifest" href="/site.webmanifest"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#00aba9"><meta name="theme-color" content="#ffffff"><!-- CSS --><link type="text/css" href="./styles/style.css" rel="stylesheet"><!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers --></head><body><div class="main-wrapper"><header class="header-global" id="up"><!-- Start navbar --><nav class="navbar"><div class="container"><div class="navbar__inner"><div class="navbar__logo"><a href="./index.html"><img src="./assets/img/logo/logo-white.png" alt="logo"></a></div><div class="navbar__search"><input type="text" name="searchBar" id="searchBar" placeholder="Search a book..." autocomplete="off"><div class="navbar__icon"><svg><use xlink:href="assets/icons/sprite.svg#search"></use></svg></div></div><div class="navbar__btns"><button class="navbar__btn navbar__btn--user"><svg><use xlink:href="assets/icons/sprite.svg#user"></use></svg></button> <button class="navbar__btn navbar__btn--my-books"><svg><use xlink:href="assets/icons/sprite.svg#book"></use></svg><div class="navbar__counter" data-counter="My Books">0</div></button> <button class="navbar__btn navbar__btn--wishlist"><svg><use xlink:href="assets/icons/sprite.svg#heart"></use></svg><div class="navbar__counter" data-counter="Wish List">0</div></button><!-- start my-books popup-list--><div class="popup-list" data-popup="My Books"><div class="popup-list__main-title">My Books</div><div class="popup-list__close"><svg><use xlink:href="assets/icons/sprite.svg#close"></use></svg></div><ul class="popup-list__wrapper" data-popup="My Books"></ul><button class="popup-list__more">View Full List</button><div class="popup-list__triangle"></div></div><!-- end my-books popup-list--><!-- start wishlist popup-list--><div class="popup-list" data-popup="Wish List"><div class="popup-list__main-title">My Wish List</div><div class="popup-list__close"><svg><use xlink:href="assets/icons/sprite.svg#close"></use></svg></div><ul class="popup-list__wrapper" data-popup="Wish List"></ul><button class="popup-list__more">View Full List</button><div class="popup-list__triangle"></div></div><!-- end wishlist popup-list--></div></div></div></nav><!-- End navbar --></header><main><div class="preloader"><img class="loader-element animate__animated animate__jackInTheBox" src="./assets/icons/spinner.gif" alt="logo"></div><!-- start products --><section class="products"><div class="container"><div class="products__inner"><!-- start products__filter --><div class="products__filter"><div class="products__categories"><h2>Categories</h2><ul><li><a href="#">Biographies</a></li><li><a href="#">Business</a></li><li><a href="#">Financial education</a></li><li><a href="#">Literature</a></li><li><a href="#">Personal development</a></li><li><a href="#">Time management</a></li></ul></div><div class="products__authors"><h2>Authors</h2><ul><li><a href="#">Bodo Schaefer</a></li><li><a href="#">Brian Tracy</a></li><li><a href="#">Dale Carnegie</a></li><li><a href="#">Hal Elrod</a></li><li><a href="#">John Kehoe</a></li><li><a href="#">Napoleon Hill</a></li><li><a href="#">Robert Kiyosaki</a></li><li><a href="#">Robin Sharma</a></li><li><a href="#">Stephen Covey</a></li><li><a href="#">Anthony Robbins</a></li></ul></div></div><!-- end products__filter --><!-- start products__results --><div class="products__results"><!-- start products__results_top --><div class="products__settings"><div class="products__sorting"><form method="get" action="">Sort by: <select data-sort-items><option value="default" selected="true" disabled="disabled">Default</option><option value="a-z">Name (A-Z)</option><option value="z-a">Name (Z-A)</option></select></form><form method="get" action=""><select data-items-perpage><option value="6" selected="true">6</option><option value="12">12</option></select></form></div><div class="products__views"><div class="products__view products__view--active" data-view="grid"><svg><use xlink:href="assets/icons/sprite.svg#view-grid"></use></svg></div><div class="products__view" data-view="list"><svg><use xlink:href="assets/icons/sprite.svg#view-list"></use></svg></div></div></div><!-- end products__results_top --><!-- start products__results_items --><ul class="products__cards"><img src="assets/icons/spinner.gif" alt="" class="loader"></ul><!-- end products__results_items --> <button class="btn load-more" id="loadMore">Load more <svg><use xlink:href="assets/icons/sprite.svg#spinner"></use></svg></button></div><!-- end products__results --></div></div></section><!-- end products --><!-- start quotes --><article class="quotes"><div class="container"><div class="quotes__inner animated"></div></div></article><!-- end quotes --></main><a href="#up" class="scroll-up animated fadeOut"><svg><use xlink:href="assets/icons/sprite.svg#arrow-up"></use></svg></a><footer class="footer" id="contacts"><div class="copyright"><div class="container"><div class="copyright__left">Copyright © 2020. All Rights Reserved.</div><div class="copyright__right"><div>Crafted by <a href="https://www.linkedin.com/in/victor-ciornii/" target="_blank">CIORNII VICTOR</a></div></div></div></div></footer><!------------------------------------------- Modals --------------------------------------><div class="modal__bg fade" data-modal><div class="modal"><div class="modal__close">&times;</div><div class="modal__inner"></div></div></div></div><!-- main-wrapper --><!-- JS --><script src="./js/main.js"></script></body></html>
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/logo/favicon/favicon-16x16.png"> -->
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link type="text/css" href="./styles/style.css" rel="stylesheet">
+
+<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <header class="header-global" id="up">
+    <!-- Start navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar__inner">
+                <div class="navbar__logo">
+                    <a href="./index.html">
+                        <img src="./assets/img/logo/logo-white.png" alt="logo">
+                    </a>
+                </div>
+                <div class="navbar__search">
+                    <input type="text" name="searchBar" id="searchBar" placeholder="Search a book..." autocomplete="off" />
+                    <div class="navbar__icon">
+                        <svg>
+                            <use xlink:href="assets/icons/sprite.svg#search"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="navbar__btns">
+                    <button class="navbar__btn navbar__btn--user">
+                        <svg>
+                            <use xlink:href="assets/icons/sprite.svg#user"></use>
+                        </svg>
+                    </button>
+                    <button class="navbar__btn navbar__btn--my-books">
+                        <svg>
+                            <use xlink:href="assets/icons/sprite.svg#book"></use>
+                        </svg>
+                        <div class="navbar__counter" data-counter="My Books">0</div>
+                    </button>
+                    <button class="navbar__btn navbar__btn--wishlist">
+                        <svg>
+                            <use xlink:href="assets/icons/sprite.svg#heart"></use>
+                        </svg>
+                        <div class="navbar__counter" data-counter="Wish List">0</div>
+                    </button>
+                    <!-- start my-books popup-list-->
+                    <div class="popup-list" data-popup="My Books">
+                        <div class="popup-list__main-title">My Books</div>
+                        <div class="popup-list__close">
+                            <svg>
+                                <use xlink:href="assets/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                        <ul class="popup-list__wrapper" data-popup="My Books">
+                        </ul>
+                        <button class="popup-list__more">
+                            View Full List
+                        </button>
+                        <div class="popup-list__triangle">
+                        </div>
+                    </div> <!-- end my-books popup-list-->
+                    <!-- start wishlist popup-list-->
+                    <div class="popup-list" data-popup="Wish List">
+                        <div class="popup-list__main-title">My Wish List</div>
+                        <div class="popup-list__close">
+                            <svg>
+                                <use xlink:href="assets/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                        <ul class="popup-list__wrapper" data-popup="Wish List">
+                        </ul>
+                        <button class="popup-list__more">
+                            View Full List
+                        </button>
+                        <div class="popup-list__triangle">
+                        </div>
+                    </div> <!-- end wishlist popup-list-->
+                </div>
+            </div>
+        </div>
+    </nav><!-- End navbar -->
+</header>
+        <main>
+
+            <div class="preloader">
+    <img class="loader-element animate__animated animate__jackInTheBox" src="./assets/icons/spinner.gif"
+         alt="logo">
+</div>
+            <!-- start products -->
+            <section class="products">
+                <div class="container">
+                    <div class="products__inner">
+                        <!-- start products__filter -->
+                        <div class="products__filter">
+                            <div class="products__categories">
+                                <h2>Categories</h2>
+                                <ul>
+                                    <li><a href="#">Biographies</a></li>
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Financial education</a></li>
+                                    <li><a href="#">Literature</a></li>
+                                    <li><a href="#">Personal development</a></li>
+                                    <li><a href="#">Time management</a></li>
+                                </ul>
+                            </div>
+                            <div class="products__authors">
+                                <h2>Authors</h2>
+                                <ul>
+                                    <li><a href="#">Bodo Schaefer</a></li>
+                                    <li><a href="#">Brian Tracy</a></li>
+                                    <li><a href="#">Dale Carnegie</a></li>
+                                    <li><a href="#">Hal Elrod</a></li>
+                                    <li><a href="#">John Kehoe</a></li>
+                                    <li><a href="#">Napoleon Hill</a></li>
+                                    <li><a href="#">Robert Kiyosaki</a></li>
+                                    <li><a href="#">Robin Sharma</a></li>
+                                    <li><a href="#">Stephen Covey</a></li>
+                                    <li><a href="#">Anthony Robbins</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- end products__filter -->
+                        <!-- start products__results -->
+                        <div class="products__results">
+                            <!-- start products__results_top -->
+                            <div class="products__settings">
+                                <div class="products__sorting">
+                                    <form method="get" action="">
+                                        Sort by:
+                                        <select data-sort-items>
+                                            <option value="default" selected="true" disabled>Default</option>
+                                            <option value="a-z">Name (A-Z)</option>
+                                            <option value="z-a">Name (Z-A)</option>
+                                        </select>
+                                    </form>
+                                    <form method="get" action="">
+                                        <select data-items-perpage>
+                                            <option value="6" selected="true">6</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="products__views">
+                                    <div class="products__view products__view--active" data-view="grid">
+                                        <svg>
+                                            <use xlink:href="assets/icons/sprite.svg#view-grid"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="products__view" data-view="list">
+                                        <svg>
+                                            <use xlink:href="assets/icons/sprite.svg#view-list"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end products__results_top -->
+                            <!-- start products__results_items -->
+                            <ul class="products__cards">
+                                <img src="assets/icons/spinner.gif" alt="" class="loader">
+                            </ul><!-- end products__results_items -->
+                            <button class="btn load-more" id="loadMore">
+                                Load more
+                                <svg>
+                                    <use xlink:href="assets/icons/sprite.svg#spinner"></use>
+                                </svg>
+                            </button>
+                        </div><!-- end products__results -->
+                    </div>
+                </div>
+            </section><!-- end products -->
+            <!-- start quotes -->
+            <article class="quotes">
+                <div class="container">
+                    <div class="quotes__inner animated">
+                    </div>
+                </div>
+            </article><!-- end quotes -->
+
+        </main>
+
+        <a href="#up" class="scroll-up animated fadeOut">
+            <svg>
+                <use xlink:href="assets/icons/sprite.svg#arrow-up"></use>
+            </svg>
+        </a>
+
+        <footer class="footer" id="contacts">
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright__left">Copyright © 2020. All Rights Reserved.</div>
+            <div class="copyright__right">
+                <div>Crafted by <a href="https://www.linkedin.com/in/victor-ciornii/" target="_blank">CIORNII VICTOR</a></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <!------------------------------------------- Modals -------------------------------------->
+
+        <div class="modal__bg fade" data-modal>
+            <div class="modal">
+                <div class="modal__close">&times;</div>
+                <div class="modal__inner">
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- main-wrapper -->
+
+    <!-- JS -->
+<script src="./js/main.js"></script>
+</body>
+
+</html>
